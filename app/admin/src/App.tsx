@@ -32,17 +32,26 @@ import { TaskTypeList } from "./components/TaskTypeList";
 import { TaskTypeCreate } from "./components/TaskTypeCreate";
 import { TaskTypeEdit } from "./components/TaskTypeEdit";
 
-const httpClient = (url, options = {}) => {
+import { authProvider } from "./authProvider";
+
+import { env } from "./env";
+
+interface httpClientOptions {
+  headers: any
+}
+
+const httpClient = (url, options: httpClientOptions = {headers: false}) => {
   if (!options.headers) {
       options.headers = new Headers({ Accept: 'application/json' });
   }
-  // add your own headers here
-  options.headers.set('X-Custom-Header', 'foobar');
+  const { token } = JSON.parse(localStorage.getItem('auth'));
+  console.log(token)
+  options.headers.set('Authorization', `Bearer ${token}`);
   return fetchUtils.fetchJson(url, options);
 };
 
 const config: IDataProviderConfig = {
-  apiUrl: "http://localhost:3000",
+  apiUrl: env.API_BASE_URL,
   //httpClient: fetchUtils.fetchJson,
   httpClient: httpClient,
   defaultListOp: "eq",
@@ -50,10 +59,12 @@ const config: IDataProviderConfig = {
   schema: defaultSchema,
 };
 
+const dataProvider=postgrestRestProvider(config)
+
 import {AppTheme} from "./AppTheme"
 
 export const App = () => (
-  <Admin dataProvider={postgrestRestProvider(config)} /*theme={AppTheme}*/>
+  <Admin dataProvider={postgrestRestProvider(config)} authProvider={authProvider} /*theme={AppTheme}*/>
     <Resource
       name="users"
       recordRepresentation={(record) =>
