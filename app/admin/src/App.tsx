@@ -36,6 +36,11 @@ import { authProvider } from "./authProvider";
 
 import { env } from "./env";
 
+import {AppTheme} from "./AppTheme"
+import {Login} from "./components/auth";
+import { create } from "domain";
+
+
 interface httpClientOptions {
   headers: any
 }
@@ -61,10 +66,10 @@ const config: IDataProviderConfig = {
 
 const dataProvider=postgrestRestProvider(config)
 
-import {AppTheme} from "./AppTheme"
+
 
 export const App = () => (
-  <Admin dataProvider={postgrestRestProvider(config)} authProvider={authProvider} /*theme={AppTheme}*/>
+  <Admin loginPage={Login}  dataProvider={postgrestRestProvider(config)} authProvider={authProvider} /*theme={AppTheme}*/>
     <Resource
       name="users"
       recordRepresentation={(record) =>

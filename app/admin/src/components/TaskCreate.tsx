@@ -5,7 +5,7 @@ export const TaskCreate = () => (
     <Create>
         <SimpleForm>
             <ReferenceInput source="project_id" reference="projects" />
-            <TextInput source="title" />
+            <TextInput source="title" resettable />
             <RichTextInput source="description" />
             <ReferenceInput source="task_type_id" reference="task_types" />
         </SimpleForm>
