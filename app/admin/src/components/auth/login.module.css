@@ -8,6 +8,7 @@
 }
 
 .organization > small {
-    font: 0.77rem "DinWebMedium", sans-serif
+    font: 0.77rem "DinWebMedium", sans-serif;
+    font-weight: 600;
 }
 
