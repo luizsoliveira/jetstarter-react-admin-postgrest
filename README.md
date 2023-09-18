@@ -1,5 +1,5 @@
 # NetSience
-Web application for executing scientific workflows
+Web application for executing scientific workflows on computer networks
 
 
 Demo User
