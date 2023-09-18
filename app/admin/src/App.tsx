@@ -69,7 +69,7 @@ const dataProvider=postgrestRestProvider(config)
 
 
 export const App = () => (
-  <Admin loginPage={Login}  dataProvider={postgrestRestProvider(config)} authProvider={authProvider} /*theme={AppTheme}*/>
+  <Admin loginPage={Login}  dataProvider={postgrestRestProvider(config)} authProvider={authProvider} theme={AppTheme}>
     <Resource
       name="users"
       recordRepresentation={(record) =>

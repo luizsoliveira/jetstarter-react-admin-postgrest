@@ -3,13 +3,12 @@ import { HtmlHTMLAttributes, ReactNode, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Card, Avatar, SxProps } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import LockIcon from '@mui/icons-material/Lock';
 import { useNavigate } from 'react-router-dom';
 import { useCheckAuth } from 'ra-core';
 
 import { LoginForm as DefaultLoginForm } from './LoginForm';
 
-import logo from '../../../public/images/SFU.png'
+import logo from '../../images/SFU.png'
 import loginStyles from './login.module.css'
 
 /**
@@ -72,7 +71,12 @@ export const Login = (props: LoginProps) => {
         <Root {...rest} ref={containerRef}>
             <Card className={LoginClasses.card}>
                 <div className={LoginClasses.avatar}>
-                    <img src={logo} className={loginStyles.login_logo}/>
+                    <div className={loginStyles.organization}>
+                        <img src={logo} className={loginStyles.logo}/>
+                        <small>Faculty of Applied Sciences</small>
+                        <small>Communication Networks Laboratory</small>
+                    </div>
+                    
                     {/* <Avatar className={LoginClasses.icon}>
                         <LockIcon />
                         
@@ -113,7 +117,9 @@ const Root = styled('div', {
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
     backgroundImage:
-        'radial-gradient(circle at 50% 14em, #313264 0%, #00023b 60%, #00023b 100%)',
+        // 'radial-gradient(circle at 50% 14em, #313264 0%, #00023b 60%, #00023b 100%)',
+        'radial-gradient(circle at 50% 14em, #91464d 0%, #942630 60%, #8f1822 100%)',
+        
 
     [`& .${LoginClasses.card}`]: {
         minWidth: 300,
