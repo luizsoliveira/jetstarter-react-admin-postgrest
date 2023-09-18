@@ -117,8 +117,8 @@ const Root = styled('div', {
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
     backgroundImage:
-        // 'radial-gradient(circle at 50% 14em, #313264 0%, #00023b 60%, #00023b 100%)',
-        'radial-gradient(circle at 50% 14em, #91464d 0%, #942630 60%, #8f1822 100%)',
+        // 'radial-gradient(circle at 50% 14em, #91464d 0%, #942630 60%, #8f1822 100%)',
+        'radial-gradient(circle at 50% 14em, #8f2b34 0%, #942630 60%, #8f1822 100%)',
         
 
     [`& .${LoginClasses.card}`]: {
