@@ -17,6 +17,7 @@ import postgrestRestProvider, {
 import { UserList } from "./components/UserList";
 import { UserCreate } from "./components/UserCreate";
 import { UserEdit } from "./components/UserEdit";
+import { UserShow } from "./components/UserShow";
 
 import { ProjectList } from "./components/ProjectList";
 import { ProjectShow } from "./components/ProjectShow";
@@ -78,6 +79,7 @@ export const App = () => (
       list={UserList}
       create={UserCreate}
       edit={UserEdit}
+      show={UserShow}
     />
     <Resource
       name="projects"
