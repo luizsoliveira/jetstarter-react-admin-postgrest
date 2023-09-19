@@ -12,6 +12,8 @@ import {
 } from 'ra-core';
 import { TextInput } from 'react-admin';
 
+import loginStyles from './login.module.css'
+
 export const LoginForm = (props: LoginFormProps) => {
     const { redirectTo, className } = props;
     const [loading, setLoading] = useSafeSetState(false);
@@ -76,10 +78,11 @@ export const LoginForm = (props: LoginFormProps) => {
                 <Button
                     variant="contained"
                     type="submit"
-                    color="primary"
+                    //color="primary"
                     disabled={loading}
                     fullWidth
-                    className={LoginFormClasses.button}
+                    // className={LoginFormClasses.button}
+                    className={loginStyles.button}
                 >
                     {loading ? (
                         <CircularProgress
