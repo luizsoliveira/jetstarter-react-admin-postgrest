@@ -1,15 +1,15 @@
 import { Admin, defaultTheme } from 'react-admin';
 import indigo from '@mui/material/colors/indigo';
 import grey from '@mui/material/colors/grey';
-import red from '@mui/material/colors/red';
+import myRed from './styles/myRed';
 import blueGrey from '@mui/material/colors/blueGrey';
 
 export const AppTheme = {
     ...defaultTheme,
     palette: {
-        primary: red,
-        secondary: blueGrey,
-        error: red,
+        primary: myRed,
+        secondary: myRed,
+        error: myRed,
         contrastThreshold: 3,
         tonalOffset: 0.2,
     },
