@@ -36,6 +36,7 @@ export const ProjectShow = () => (
           <TextField source="title" />
           <ReferenceField source="task_type_id" reference="task_types" />
           <DateField source="created_at" />
+          <DateField source="started_at" />
         </Datagrid>
       </ReferenceManyField>
     </TabbedShowLayout.Tab>
