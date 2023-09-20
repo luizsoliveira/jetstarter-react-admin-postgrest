@@ -1,4 +1,4 @@
-import { Datagrid, DateField, List, ReferenceField, TextField } from 'react-admin';
+import { Datagrid, DateField, DeleteButton, EditButton, List, ReferenceField, ShowButton, TextField } from 'react-admin';
 
 export const TaskList = () => (
     <List>
@@ -8,6 +8,11 @@ export const TaskList = () => (
             <TextField source="description" />
             <ReferenceField source="task_type_id" reference="task_types" />
             <DateField source="created_at" />
+            <>
+                <ShowButton />
+                <EditButton />
+                <DeleteButton />
+            </>
         </Datagrid>
     </List>
 );
