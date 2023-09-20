@@ -24,6 +24,8 @@ import { ProjectShow } from "./components/ProjectShow";
 import { ProjectCreate } from "./components/ProjectCreate";
 import { ProjectEdit } from "./components/ProjectEdit";
 
+import { ProjectMemberCreate } from "./components/ProjectMemberCreate";
+
 import { TaskList } from "./components/TaskList";
 import { TaskCreate } from "./components/TaskCreate";
 import { TaskShow } from "./components/TaskShow";
@@ -61,8 +63,11 @@ const config: IDataProviderConfig = {
   //httpClient: fetchUtils.fetchJson,
   httpClient: httpClient,
   defaultListOp: "eq",
-  primaryKeys: defaultPrimaryKeys,
+  // primaryKeys: defaultPrimaryKeys,
   schema: defaultSchema,
+  primaryKeys: new Map([
+    ['project_members', ['user_id', 'project_id']],
+]),
 };
 
 const dataProvider=postgrestRestProvider(config)
@@ -88,6 +93,14 @@ export const App = () => (
       show={ProjectShow}
       edit={ProjectEdit}
       create={ProjectCreate}
+    />
+    <Resource
+      name="project_members"
+      recordRepresentation={(record) => `${record.project_id}-${record.user_id}`}
+      list={ListGuesser}
+      // show={ShowGuesser}
+      create={ProjectMemberCreate}
+      // edit={TaskTypeEdit}
     />
     <Resource
       name="tasks"

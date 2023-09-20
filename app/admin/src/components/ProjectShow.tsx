@@ -7,7 +7,8 @@ import {
   RichTextField,
   ReferenceManyField,
   Datagrid,
-  TabbedShowLayout
+  TabbedShowLayout,
+  EditButton
 } from "react-admin";
 
 export const ProjectShow = () => (
@@ -27,6 +28,7 @@ export const ProjectShow = () => (
           <DateField source="created_at" />
         </Datagrid>
       </ReferenceManyField>
+      <EditButton/>
     </TabbedShowLayout.Tab>
     <TabbedShowLayout.Tab label="Tasks">
       <ReferenceManyField reference="tasks" target="project_id">
