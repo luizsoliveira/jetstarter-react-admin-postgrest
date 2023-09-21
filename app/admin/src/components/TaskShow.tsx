@@ -1,26 +1,34 @@
-import { ArrayField, Datagrid, DateField, NumberField, ReferenceField, RichTextField, Show, SimpleFormIterator, SimpleShowLayout, TabbedForm, TextField, required } from 'react-admin';
+import { ArrayField, Datagrid, DateField, NumberField, ReferenceField, RichTextField, Show, SimpleFormIterator, SimpleShowLayout, TabbedForm, TextField, WithListContext, required } from 'react-admin';
+//import { TaskInputShow } from './TaskInputShow';
 
 export const TaskShow = () => (
     <Show>
         <TabbedForm>
             <TabbedForm.Tab label="Summary">
-                <ReferenceField source="project_id" reference="projects" fullWidth />
-                <TextField source="title" resettable fullWidth />
-                <RichTextField source="description" fullWidth />
-                <ReferenceField source="task_type_id" reference="task_types" fullWidth />
+                <SimpleShowLayout>
+                <ReferenceField source="project_id" reference="projects"/>
+                <TextField source="title" />
+                <TextField source="key" />
+                <RichTextField source="description"/>
+                <ReferenceField source="task_type_id" reference="task_types"/>
+                <DateField source='created_at' showTime={true}/>
+                <DateField source='started_at' showTime={true}/>
+                <DateField source='finished_at' showTime={true}/>
+                </SimpleShowLayout>
             </TabbedForm.Tab>
-            <TabbedForm.Tab label="Input">
-                <ArrayField source="parameters">
-                    <Datagrid>
-                        <TextField source="collection_site"/>
-                        <DateField source="date_start" />
-                        <DateField source="date_end" />
-                        <TextField source="anomalous_datetime_start" />
-                        <TextField source="anomalous_datetime_end" />
-                        <NumberField source="data_partition_training"  />
-                        <NumberField source="data_partition_testing"  />
-                    </Datagrid>
-                </ArrayField>
+            <TabbedForm.Tab label="Input">     
+                <SimpleShowLayout>
+                        <TextField label="Collection site" source="parameters.collection_site"/>
+                        <DateField source="parameters.date_start" />
+                        <DateField source="parameters.date_end" />
+                        <TextField source="parameters.anomalous_datetime_start" />
+                        <TextField source="parameters.anomalous_datetime_end" />
+                        <NumberField source="parameters.data_partition_training"  />
+                        <NumberField source="parameters.data_partition_testing"  />
+                </SimpleShowLayout>
+            </TabbedForm.Tab>
+            <TabbedForm.Tab label="Terminal">
+
             </TabbedForm.Tab>
         </TabbedForm>
     </Show>
