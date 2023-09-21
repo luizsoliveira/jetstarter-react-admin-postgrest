@@ -7,7 +7,9 @@ export const TaskList = () => (
             <TextField source="title" />
             <TextField source="description" />
             <ReferenceField source="task_type_id" reference="task_types" />
-            <DateField source="created_at" />
+            <DateField source="created_at" showTime={true} />
+            <DateField source="started_at" showTime={true} />
+            <DateField source="finished_at" showTime={true} />
             <>
                 <ShowButton />
                 <EditButton />
