@@ -18,7 +18,7 @@ export const TaskShow = () => (
             </TabbedForm.Tab>
             <TabbedForm.Tab label="Input">     
                 <SimpleShowLayout>
-                        <TextField label="Collection site" source="parameters.collection_site"/>
+                        <TextField source="parameters.collection_site"/>
                         <DateField source="parameters.date_start" />
                         <DateField source="parameters.date_end" />
                         <TextField source="parameters.anomalous_datetime_start" />
