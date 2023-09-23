@@ -1,3 +1,0 @@
-[submodule "app/api"]
-	path = app/api
-	url = https://github.com/luizsoliveira/netscience-api
