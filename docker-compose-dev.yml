@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  react-admin:
+    container_name: react-admin-dev
+    build:
+      context: .
+      target: development
+      dockerfile: dockerfiles/react-admin-dev
+    volumes:
+      - ./app/admin:/app/admin
+      - /app/admin/node_modules
+    ports:
+      - 7000:5173
