@@ -13,10 +13,10 @@ export const TaskTypeBGPShow = () => (
                         </div>
                         <div className={stylesAdmin.inlineShowGroupFields}>
                             <Labeled label="Datetime analysis start">
-                                <DateField source="parameters.date_start" showTime={true} />
+                                <DateField source="parameters.datetime_start" showTime={true} />
                             </Labeled>
                             <Labeled label="Datetime analysis end">
-                                <DateField source="parameters.date_end" showTime={true} />
+                                <DateField source="parameters.datetime_end" showTime={true} />
                             </Labeled>
                         </div>
                         <div className={stylesAdmin.inlineShowGroupFields}>

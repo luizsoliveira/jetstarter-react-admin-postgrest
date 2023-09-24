@@ -8,8 +8,8 @@ export const TaskTypeBGP = () => (
         { id: 'route-views', name: 'Route Views' },
         ]} />
         <div className={stylesAdmin.inlineGroupFields}>
-        <DateTimeInput source="parameters.date_start" />
-        <DateTimeInput source="parameters.date_end"  />
+        <DateTimeInput source="parameters.datetime_start" />
+        <DateTimeInput source="parameters.datetime_end"  />
         </div>
         <div className={stylesAdmin.inlineGroupFields}>
         <DateTimeInput source="parameters.anomalous_datetime_start" />
