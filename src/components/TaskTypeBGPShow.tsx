@@ -29,10 +29,10 @@ export const TaskTypeBGPShow = () => (
                         </div>
                         <div className={stylesAdmin.inlineShowGroupFields}>
                             <Labeled label="Data Partition Training (%)">
-                                <NumberField source="parameters.data_partition_training" showTime={true} />
+                                <NumberField source="parameters.data_partition_training" />
                             </Labeled>
                             <Labeled label="Data Partition Testing (%)">
-                                <NumberField source="parameters.data_partition_testing" showTime={true} />
+                                <NumberField source="parameters.data_partition_testing" />
                             </Labeled>
                         </div>
         </SimpleShowLayout> 
