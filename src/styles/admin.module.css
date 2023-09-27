@@ -18,3 +18,17 @@
     column-gap: 20px;
     padding-bottom: 10px;
 }
+
+.terminal {
+    background-color: black;
+    color: white;
+    max-height:500px;
+    width: 100%;
+    overflow:scroll;
+}
+
+.terminal p {
+    margin-botton: 0px;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+}

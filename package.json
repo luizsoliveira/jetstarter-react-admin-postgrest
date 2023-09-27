@@ -2,7 +2,7 @@
   "name": "test-admin",
   "private": true,
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --port 7000",
     "build": "vite build",
     "serve": "vite preview",
     "type-check": "tsc --noEmit",
@@ -14,6 +14,7 @@
     "@mui/material": "^5.14.9",
     "@raphiniert/ra-data-postgrest": "^2.0.0-alpha.3",
     "@testing-library/react": "^14.0.0",
+    "axios": "^1.5.1",
     "clsx": "^2.0.0",
     "prop-types": "^15.8.1",
     "ra-core": "^4.14.1",
@@ -21,10 +22,11 @@
     "react": "^18.2.0",
     "react-admin": "^4.13.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.16.0"
+    "react-router-dom": "^6.16.0",
+    "socket.io-client": "^4.7.2"
   },
   "devDependencies": {
-    "@types/node": "^18.16.1",
+    "@types/node": "^18.18.0",
     "@types/react": "^18.0.22",
     "@types/react-dom": "^18.0.7",
     "@typescript-eslint/eslint-plugin": "^5.60.1",
