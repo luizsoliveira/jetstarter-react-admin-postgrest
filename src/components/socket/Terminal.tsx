@@ -52,7 +52,7 @@ export function Terminal({ lines }) {
                 },
               }}
             />
-            } label="Automatic scroll to bottom" />
+            } label="Automatically scroll down" />
       </div>
     </>
   );
