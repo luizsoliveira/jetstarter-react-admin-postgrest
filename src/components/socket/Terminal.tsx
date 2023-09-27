@@ -20,7 +20,7 @@ export function Terminal({ lines }) {
         {
           lines.map((line, index) =>
             <p key={ index }>
-              <span className={stylesAdmin.lineNumber}>{ index.toString().padStart(4, ' ') }:</span>
+              <span className={stylesAdmin.lineNumber}>{ (index+1).toString().padStart(4, ' ') }:</span>
               <span>{ line }</span>
             </p>
           )
