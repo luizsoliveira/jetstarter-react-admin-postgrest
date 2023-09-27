@@ -33,7 +33,7 @@ export default function TaskSocket() {
       .then(response => {
         const newLines = response.data
         setLineEvents(prevLines => [...prevLines, ...newLines])
-        sessionStorage.setItem(`${task.key}_last_line_printed`, newLineNumber)
+        sessionStorage.setItem(`${task.key}_last_line_printed`, newLineNumber-1)
         return response
       })
       .catch(console.error)
