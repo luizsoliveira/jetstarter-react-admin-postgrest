@@ -25,6 +25,7 @@
     max-height:500px;
     min-width:850px;
     overflow:scroll;
+    padding-left: 5px;
 }
 
 .terminal p {
@@ -36,4 +37,10 @@
 .terminal .lineNumber {
     color: cyan;
     margin-right: 5px;
+}
+
+.bottom_bar {
+    color: white;
+    background-color: gray;
+    padding-left: 10px;
 }
