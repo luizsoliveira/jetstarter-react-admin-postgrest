@@ -23,7 +23,7 @@
     background-color: black;
     color: white;
     max-height:500px;
-    width: 100%;
+    min-width:850px;
     overflow:scroll;
 }
 
@@ -31,4 +31,9 @@
     margin-botton: 0px;
     margin-block-start: 0px;
     margin-block-end: 0px;
+}
+
+.terminal .lineNumber {
+    color: cyan;
+    margin-right: 5px;
 }
