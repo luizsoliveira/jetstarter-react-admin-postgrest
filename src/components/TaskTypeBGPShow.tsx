@@ -35,6 +35,16 @@ export const TaskTypeBGPShow = () => (
                                 <NumberField source="parameters.data_partition_testing" />
                             </Labeled>
                         </div>
+                        <div className={stylesAdmin.inlineShowGroupFields}>
+                            <Labeled label="Cache">
+                                <TextField source="parameters.cache"/>
+                            </Labeled>
+                        </div>
+                        <div className={stylesAdmin.inlineShowGroupFields}>
+                            <Labeled label="Cache">
+                                <TextField source="parameters.debug"/>
+                            </Labeled>
+                        </div>
         </SimpleShowLayout> 
     </>
                   

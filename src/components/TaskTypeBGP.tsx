@@ -1,4 +1,4 @@
-import { ArrayInput, SimpleFormIterator, RadioButtonGroupInput, DateTimeInput, NumberInput, SelectInput } from "react-admin";
+import { ArrayInput, SimpleFormIterator, RadioButtonGroupInput, DateTimeInput, NumberInput, SelectInput, CheckboxGroupInput } from "react-admin";
 import stylesAdmin from '../styles/admin.module.css'
 
 export const TaskTypeBGP = () => (
@@ -23,6 +23,14 @@ export const TaskTypeBGP = () => (
         { id: '5', name: '5' },
         { id: '10', name: '10' },
         { id: '20', name: '20' },
+        ]} />
+        <RadioButtonGroupInput source="parameters.cache" defaultValue="cache" label="Cache"  choices={[
+        { id: 'activated', name: 'Activated' },
+        { id: 'disabled', name: 'Disabled' },
+        ]} />
+        <RadioButtonGroupInput source="parameters.debug" defaultValue="debug" label="Debug" choices={[
+        { id: 'activated', name: 'Activated' },
+        { id: 'disabled', name: 'Disabled' },
         ]} />
     </>
                   
