@@ -10,8 +10,8 @@ export const TaskShow = () => (
             <TabbedForm.Tab label="Summary">
                 <SimpleShowLayout>
                 <ReferenceField source="project_id" reference="projects"/>
+                <TextField source="id" />
                 <TextField source="title" />
-                <TextField source="key" />
                 <RichTextField source="description"/>
                 <ReferenceField source="task_type_id" reference="task_types"/>
                 <DateField source='created_at' showTime={true}/>

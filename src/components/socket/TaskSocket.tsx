@@ -20,7 +20,7 @@ export default function TaskSocket() {
   
 
   async function update_line_events(newLineNumber) {
-    const last_line_printed = sessionStorage.getItem(`${task.key}_last_line_printed`, 0);
+    const last_line_printed = sessionStorage.getItem(`${task.id}_last_line_printed`, 0);
     
     // Avoiding duplicates
     if (newLineNumber > last_line_printed) {
@@ -28,12 +28,12 @@ export default function TaskSocket() {
       const end = parseInt(newLineNumber)
       console.log(begin, end)
 
-      ws_api.get(`/stdout_segment/${task.key}/${begin}/${end}`,{
+      ws_api.get(`/stdout_segment/${task.id}/${begin}/${end}`,{
       })
       .then(response => {
         const newLines = response.data
         setLineEvents(prevLines => [...prevLines, ...newLines])
-        sessionStorage.setItem(`${task.key}_last_line_printed`, newLineNumber-1)
+        sessionStorage.setItem(`${task.id}_last_line_printed`, newLineNumber-1)
         return response
       })
       .catch(console.error)
@@ -44,13 +44,13 @@ export default function TaskSocket() {
   useEffect(() => {
 
     //Create the socket just when the record task is available
-    const socket = io(`${URL}/stdout_monitor-${task.key}`);
+    const socket = io(`${URL}/stdout_monitor-${task.id}`);
     
     socket.connect()
 
     socket.on("connect", () => {
       console.log(`Connected with success in the stdout-monitor Namespace: ${socket.nsp.name} Socket id: ${socket.id}`);
-      sessionStorage.setItem(`${task.key}_last_line_printed`, 0);
+      sessionStorage.setItem(`${task.id}_last_line_printed`, 0);
       setLineEvents([])
       socket.emit('hello', 'ping')
     });

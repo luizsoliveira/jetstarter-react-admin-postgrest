@@ -103,6 +103,7 @@ export const App = () => (
     />
     <Resource
       name="tasks"
+      recordRepresentation={(record) => `${record.title}`}
       list={TaskList}
       show={TaskShow}
       create={TaskCreate}
