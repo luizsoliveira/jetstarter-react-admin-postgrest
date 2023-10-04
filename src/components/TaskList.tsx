@@ -1,6 +1,25 @@
-import { CloneButton, Datagrid, DateField, DeleteButton, EditButton, List, ReferenceField, ShowButton, TextField } from 'react-admin';
+import { CloneButton, Datagrid, DateField, DeleteButton, EditButton, List, ReferenceField, ShowButton, TextField, useRecordContext } from 'react-admin';
 
-export const TaskList = () => (
+// const test = {id: 1, description:'descrição', date_start: 'inicio', date_fim: 'fim'}
+
+// const {id, date_start, date_fim, ...rest} = test;
+
+// console.log(rest)
+
+
+// console.log()
+
+export const TaskList = () => {
+
+    // const record = useRecordContext();
+    // if (record) {
+    //     const {started_at, finished_at, ...clonedTask} = record
+    // } else {
+    //     const clonedTask = {}
+    // }
+    
+
+    return (
     <List>
         <Datagrid rowClick="show">
             <ReferenceField source="project_id" reference="projects" />
@@ -11,9 +30,9 @@ export const TaskList = () => (
             <>
                 <ShowButton />
                 <EditButton />
-                <CloneButton />
+                <CloneButton/>
                 <DeleteButton />
             </>
         </Datagrid>
     </List>
-);
+)};

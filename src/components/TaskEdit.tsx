@@ -12,6 +12,7 @@ export const TaskEdit = () => (
                 <RichTextInput source="description" fullWidth />
                 <ReferenceInput source="task_type_id" reference="task_types" fullWidth validate={[required()]}/>
                 <DateTimeInput source="started_at"/>
+                <DateTimeInput source="finished_at"/>
             </TabbedForm.Tab>
             <TabbedForm.Tab label="Input">
                 <TaskTypeBGP/>

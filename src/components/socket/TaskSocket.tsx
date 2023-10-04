@@ -20,7 +20,7 @@ export default function TaskSocket() {
   
 
   async function update_line_events(newLineNumber) {
-    const last_line_printed = sessionStorage.getItem(`${task.id}_last_line_printed`, 0);
+    const last_line_printed = sessionStorage.getItem(`${task.id}_last_line_printed`);
     
     // Avoiding duplicates
     if (newLineNumber > last_line_printed) {
@@ -33,7 +33,8 @@ export default function TaskSocket() {
       .then(response => {
         const newLines = response.data
         setLineEvents(prevLines => [...prevLines, ...newLines])
-        sessionStorage.setItem(`${task.id}_last_line_printed`, newLineNumber-1)
+        //setLineEvents([...lineEvents, ...newLines])
+        sessionStorage.setItem(`${task.id}_last_line_printed`, (newLineNumber-1).toString())
         return response
       })
       .catch(console.error)
@@ -43,21 +44,30 @@ export default function TaskSocket() {
 
   useEffect(() => {
 
-    //Create the socket just when the record task is available
     const socket = io(`${URL}/stdout_monitor-${task.id}`);
     
     socket.connect()
 
-    socket.on("connect", () => {
+    // socket.on("connect", () => {
+    //   console.log(`Connected with success in the stdout-monitor Namespace: ${socket.nsp.name} Socket id: ${socket.id}`);
+    //   sessionStorage.setItem(`${task.id}_last_line_printed`, 0);
+    //   setLineEvents([])
+    //   socket.emit('hello', 'ping')
+    // });
+
+    //Setup executed after connected
+    function postConnectSetup() {
       console.log(`Connected with success in the stdout-monitor Namespace: ${socket.nsp.name} Socket id: ${socket.id}`);
       sessionStorage.setItem(`${task.id}_last_line_printed`, 0);
       setLineEvents([])
       socket.emit('hello', 'ping')
-    });
+    }
 
 
     function onConnect() {
       setIsConnected(true);
+      postConnectSetup();
+
     }
 
     function onDisconnect() {
@@ -72,8 +82,9 @@ export default function TaskSocket() {
     socket.on('connect', onConnect);
     socket.on('disconnect', onDisconnect);
     socket.on('lastLine', onLastLineEvent);
-    // socket.on('file_update', onLineEvent);
+    
 
+    //Cleanup function
     return () => {
       socket.off('connect', onConnect);
       socket.off('disconnect', onDisconnect);
