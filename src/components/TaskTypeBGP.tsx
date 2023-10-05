@@ -1,5 +1,7 @@
-import { ArrayInput, SimpleFormIterator, RadioButtonGroupInput, DateTimeInput, NumberInput, SelectInput, CheckboxGroupInput } from "react-admin";
+import {RadioButtonGroupInput, NumberInput, SelectInput, TextInput, Labeled } from "react-admin";
 import stylesAdmin from '../styles/admin.module.css'
+
+import { DateInput, TimeInput, DateTimeInput } from 'react-admin';
 
 export const TaskTypeBGP = () => (
     <>
@@ -8,12 +10,20 @@ export const TaskTypeBGP = () => (
         { id: 'route-views', name: 'Route Views' },
         ]} />
         <div className={stylesAdmin.inlineGroupFields}>
-        <DateTimeInput source="parameters.datetime_start" />
-        <DateTimeInput source="parameters.datetime_end"  />
+        <TextInput source="parameters.date_start" helperText="format: YYYYMMDD" label="Date start"/>
+        {/* <TextInput source="parameters.time_start" helperText="format: HHMM" label="Time start"/> */}
+        <TextInput source="parameters.date_end" helperText="format: YYYYMMDD" label="Date end"/>
+        {/* <TextInput source="parameters.time_end" helperText="format: HHMM" label="Time end"/>  */}
+        {/* <DateTimeInput source="parameters.datetime_start" /> */}
+        {/* <DateTimeInput source="parameters.datetime_end"  /> */}
         </div>
         <div className={stylesAdmin.inlineGroupFields}>
-        <DateTimeInput source="parameters.anomalous_datetime_start" />
-        <DateTimeInput source="parameters.anomalous_datetime_end" />
+        <TextInput source="parameters.anomalous_date_start" helperText="format: YYYYMMDD" label="Anomalous Date start"/>
+        <TextInput source="parameters.anomalous_time_start" helperText="format: HHMM" label="Anomalous Time start"/>
+        <TextInput source="parameters.anomalous_date_end" helperText="format: YYYYMMDD" label="Anomalous Date end"/>
+        <TextInput source="parameters.anomalous_time_end" helperText="format: HHMM" label="Anomalous Time end"/>
+        {/* <DateTimeInput source="parameters.anomalous_datetime_start" /> */}
+        {/* <DateTimeInput source="parameters.anomalous_datetime_end" /> */}
         </div>
         <div className={stylesAdmin.inlineGroupFields}>
         <NumberInput source="parameters.data_partition_training"  />

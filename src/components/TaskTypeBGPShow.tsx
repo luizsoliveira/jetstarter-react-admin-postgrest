@@ -1,7 +1,6 @@
-import { ArrayInput, SimpleFormIterator, RadioButtonGroupInput, DateTimeInput, NumberInput, SelectInput, DateField, Labeled, NumberField, SimpleShowLayout, TextField } from "react-admin";
+import { Labeled, NumberField, SimpleShowLayout, TextField } from "react-admin";
 import stylesAdmin from '../styles/admin.module.css'
-import React from "react";
-import { text } from "stream/consumers";
+// import React from "react";
 
 export const TaskTypeBGPShow = () => (
     <>
@@ -12,19 +11,25 @@ export const TaskTypeBGPShow = () => (
                             </Labeled>
                         </div>
                         <div className={stylesAdmin.inlineShowGroupFields}>
-                            <Labeled label="Datetime analysis start">
-                                <DateField source="parameters.datetime_start" showTime={true} />
+                            <Labeled label="Date analysis start">
+                                <TextField source="parameters.date_start"/>
                             </Labeled>
-                            <Labeled label="Datetime analysis end">
-                                <DateField source="parameters.datetime_end" showTime={true} />
+                            <Labeled label="Date analysis end">
+                                <TextField source="parameters.date_end"/>
                             </Labeled>
                         </div>
                         <div className={stylesAdmin.inlineShowGroupFields}>
-                            <Labeled label="Datetime anomalous start">
-                                <DateField source="parameters.anomalous_datetime_start" showTime={true} />
+                            <Labeled label="Date anomalous start">
+                                <TextField source="parameters.anomalous_date_start" />
                             </Labeled>
-                            <Labeled label="Datetime anomalous end">
-                                <DateField source="parameters.anomalous_datetime_end" showTime={true} />
+                            <Labeled label="Time anomalous start">
+                                <TextField source="parameters.anomalous_time_start" />
+                            </Labeled>
+                            <Labeled label="Date anomalous end">
+                                <TextField source="parameters.anomalous_date_end" />
+                            </Labeled>
+                            <Labeled label="Time anomalous end">
+                                <TextField source="parameters.anomalous_time_end" />
                             </Labeled>
                         </div>
                         <div className={stylesAdmin.inlineShowGroupFields}>
@@ -41,7 +46,7 @@ export const TaskTypeBGPShow = () => (
                             </Labeled>
                         </div>
                         <div className={stylesAdmin.inlineShowGroupFields}>
-                            <Labeled label="Cache">
+                            <Labeled label="Debug">
                                 <TextField source="parameters.debug"/>
                             </Labeled>
                         </div>

@@ -1,4 +1,4 @@
-import { Edit, ReferenceInput, SimpleFormIterator, TextInput, ArrayInput, NumberInput, DateTimeInput, required, RadioButtonGroupInput, TabbedForm, choices, SelectInput } from 'react-admin';
+import { Edit, ReferenceInput, TextInput, DateTimeInput, required, TabbedForm } from 'react-admin';
 import { RichTextInput } from 'ra-input-rich-text';
 
 import { TaskTypeBGP } from './TaskTypeBGP';
