@@ -5,13 +5,11 @@ import {
   Resource,
   fetchUtils,
   ListGuesser,
-  EditGuesser,
+  // EditGuesser,
   ShowGuesser,
 } from "react-admin";
 import postgrestRestProvider, {
   IDataProviderConfig,
-  defaultPrimaryKeys,
-  defaultSchema,
 } from "@raphiniert/ra-data-postgrest";
 
 import { UserList } from "./components/UserList";
@@ -41,8 +39,6 @@ import { env } from "./env";
 
 import {AppTheme} from "./AppTheme"
 import {Login} from "./components/auth";
-import { create } from "domain";
-
 
 interface httpClientOptions {
   headers: any
@@ -63,7 +59,8 @@ const config: IDataProviderConfig = {
   httpClient: httpClient,
   defaultListOp: "eq",
   // primaryKeys: defaultPrimaryKeys,
-  schema: defaultSchema,
+  // schema: defaultSchema,
+  schema: () => 'secure',
   primaryKeys: new Map([
     ['project_members', ['user_id', 'project_id']],
 ]),
