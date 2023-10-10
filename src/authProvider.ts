@@ -9,7 +9,11 @@ export const authProvider: AuthProvider = {
         const request = new Request(url, {
             method: 'POST',
             body: JSON.stringify({ email: username, pass: password }),
-            headers: new Headers({ 'Content-Type': 'application/json' }),
+            //The method login is the only one public endpoint
+            headers: new Headers({ 
+                'Content-Type': 'application/json',
+                'Content-Profile': 'public'
+            }),
         });
         return fetch(request)
             .then(response => {
