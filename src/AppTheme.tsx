@@ -1,8 +1,5 @@
 import { Admin, defaultTheme } from 'react-admin';
-import indigo from '@mui/material/colors/indigo';
-import grey from '@mui/material/colors/grey';
 import myRed from './styles/myRed';
-import blueGrey from '@mui/material/colors/blueGrey';
 
 export const AppTheme = {
     ...defaultTheme,
