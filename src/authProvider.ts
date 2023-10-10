@@ -1,11 +1,9 @@
-import { env } from "./env";
-
 import { AuthProvider } from 'react-admin';
 
 
 export const authProvider: AuthProvider = {
     login: ({ username, password }) =>  {
-        const url = env.API_BASE_URL + "/rpc/login"
+        const url = (process.env.API_BASE_URL ? process.env.API_BASE_URL : 'http://localhost:7001' ) + "/rpc/login"
         const request = new Request(url, {
             method: 'POST',
             body: JSON.stringify({ email: username, pass: password }),

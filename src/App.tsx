@@ -35,8 +35,6 @@ import { TaskTypeEdit } from "./components/TaskTypeEdit";
 
 import { authProvider } from "./authProvider";
 
-import { env } from "./env";
-
 import {AppTheme} from "./AppTheme"
 import {Login} from "./components/auth";
 
@@ -54,7 +52,7 @@ const httpClient = (url, options: httpClientOptions = {headers: false}) => {
 };
 
 const config: IDataProviderConfig = {
-  apiUrl: env.API_BASE_URL,
+  apiUrl: process.env.API_BASE_URL ? process.env.API_BASE_URL : 'http://localhost:7001',
   //httpClient: fetchUtils.fetchJson,
   httpClient: httpClient,
   defaultListOp: "eq",
@@ -67,7 +65,6 @@ const config: IDataProviderConfig = {
 };
 
 const dataProvider=postgrestRestProvider(config)
-
 
 
 export const App = () => (

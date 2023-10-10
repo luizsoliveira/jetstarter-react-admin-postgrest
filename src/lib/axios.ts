@@ -1,7 +1,8 @@
 import axios from 'axios'
 
 const ws_api = axios.create({
-    baseURL: process.env.NODE_ENV === 'production' ? undefined : 'http://localhost:7002',
+    baseURL: process.env.WS_BASE_URL ? process.env.WS_BASE_URL : 'http://localhost:7002',
+    
     
   });
 

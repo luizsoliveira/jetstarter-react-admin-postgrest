@@ -1,6 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react';
 import stylesAdmin from  '../../styles/admin.module.css'
-import CheckBox from '@mui/material/Checkbox';
 import { FormControlLabel } from '@mui/material';
 import Checkbox from '@mui/material/Checkbox';
 

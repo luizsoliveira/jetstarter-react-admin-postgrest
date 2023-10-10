@@ -9,8 +9,8 @@ import { Terminal } from './Terminal';
 export default function TaskSocket() {
 
   // "undefined" means the URL will be computed from the `window.location` object
-  const URL = process.env.NODE_ENV === 'production' ? undefined : 'http://localhost:7002';
-
+  const URL = process.env.WS_BASE_URL ? process.env.WS_BASE_URL : 'http://localhost:7002/websocket';
+  
   const task = useRecordContext();
   if (!task) return null;
   
@@ -33,7 +33,6 @@ export default function TaskSocket() {
       .then(response => {
         const newLines = response.data
         setLineEvents(prevLines => [...prevLines, ...newLines])
-        //setLineEvents([...lineEvents, ...newLines])
         sessionStorage.setItem(`${task.id}_last_line_printed`, (newLineNumber-1).toString())
         return response
       })
@@ -75,6 +74,7 @@ export default function TaskSocket() {
     }
 
     function onLastLineEvent(value) {
+      //console.log(`Last line received: ${value}`)
       setLastLine(value)
       update_line_events(value)
     }
