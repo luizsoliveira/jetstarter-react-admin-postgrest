@@ -20,6 +20,7 @@ return (
                 <DateField source='created_at' showTime={true}/>
                 <DateField source='started_at' showTime={true}/>
                 <DateField source='finished_at' showTime={true}/>
+                <TextField source="return_code" />
                 </SimpleShowLayout>
             </TabbedForm.Tab>
             <TabbedForm.Tab label="Input">     
