@@ -9,6 +9,9 @@ export default defineConfig({
     },
     server: {
         host: true,
+        // hmr: {
+        //     port: 7000,
+        // },
     },
     //base: './cnl/',
     base: '/cnl/',
