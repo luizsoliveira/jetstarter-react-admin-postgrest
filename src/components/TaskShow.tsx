@@ -1,12 +1,10 @@
-import { ArrayField, Datagrid, DateField,Labeled, NumberField, ReferenceField, RichTextField, Show, SimpleFormIterator, SimpleShowLayout, TabbedForm, TextField, WithListContext, required, useRecordContext } from 'react-admin';
+import { DateField, ReferenceField, RichTextField, Show, SimpleShowLayout, TabbedForm, TextField } from 'react-admin';
 //import { TaskInputShow } from './TaskInputShow';
-import stylesAdmin from '../styles/admin.module.css'
+// import stylesAdmin from '../styles/admin.module.css'
 import { TaskTypeBGPShow } from './TaskTypeBGPShow';
 import TaskSocket from './socket/TaskSocket';
 
 export const TaskShow = () => {
-    const record = useRecordContext()
-
 return (
     <Show>
         <TabbedForm>
