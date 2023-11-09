@@ -11,14 +11,13 @@ export default function TaskSocket() {
   // "undefined" means the URL will be computed from the `window.location` object
   const URL = process.env.WS_BASE_URL ? process.env.WS_BASE_URL : 'http://localhost:7002/websocket';
   
-  const task = useRecordContext();
-  if (!task) return null;
-  
   const [isConnected, setIsConnected] = useState(socket.connected);
   const [lineEvents, setLineEvents] = useState([]);
   const [lastLine, setLastLine] = useState();
   
-
+  const task = useRecordContext();
+  if (!task) return null;
+    
   async function update_line_events(newLineNumber) {
     const last_line_printed = sessionStorage.getItem(`${task.id}_last_line_printed`);
     
@@ -46,13 +45,6 @@ export default function TaskSocket() {
     const socket = io(`${URL}/stdout_monitor-${task.id}`);
     
     socket.connect()
-
-    // socket.on("connect", () => {
-    //   console.log(`Connected with success in the stdout-monitor Namespace: ${socket.nsp.name} Socket id: ${socket.id}`);
-    //   sessionStorage.setItem(`${task.id}_last_line_printed`, 0);
-    //   setLineEvents([])
-    //   socket.emit('hello', 'ping')
-    // });
 
     //Setup executed after connected
     function postConnectSetup() {
@@ -96,10 +88,6 @@ export default function TaskSocket() {
   return (
     <div className="TaskSocket">
       <Terminal lines={ lineEvents } />
-      {/* <ConnectionState isConnected={ isConnected } />
-      <p>Last line: {lastLine}</p> */}
-      {/* <ConnectionManager /> */}
-      {/* <MyForm /> */}
     </div>
   );
 }

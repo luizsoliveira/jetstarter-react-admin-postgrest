@@ -3,6 +3,7 @@ import { DateField, ReferenceField, RichTextField, Show, SimpleShowLayout, Tabbe
 // import stylesAdmin from '../styles/admin.module.css'
 import { TaskTypeBGPShow } from './TaskTypeBGPShow';
 import TaskSocket from './socket/TaskSocket';
+import DatasetTable from './socket/DatasetTable';
 
 export const TaskShow = () => {
 return (
@@ -26,6 +27,9 @@ return (
             </TabbedForm.Tab>
             <TabbedForm.Tab label="Terminal">
                 <TaskSocket/>
+            </TabbedForm.Tab>
+            <TabbedForm.Tab label="DATASET">
+                <DatasetTable/>
             </TabbedForm.Tab>
         </TabbedForm>
     </Show>
