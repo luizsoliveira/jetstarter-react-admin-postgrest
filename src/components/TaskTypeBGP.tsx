@@ -1,14 +1,15 @@
 import {RadioButtonGroupInput, NumberInput, SelectInput, TextInput, Labeled } from "react-admin";
 import stylesAdmin from '../styles/admin.module.css'
-
-import { DateInput, TimeInput, DateTimeInput } from 'react-admin';
+import { ripe_ris_rrcs } from "../consts/ripe_ris_rrcs";
+// import { DateInput, TimeInput, DateTimeInput } from 'react-admin';
 
 export const TaskTypeBGP = () => (
     <>
         <RadioButtonGroupInput source="parameters.collection_site"  choices={[
         { id: 'ripe', name: 'RIPE' },
-        { id: 'route-views', name: 'Route Views' },
+        // { id: 'route-views', name: 'Route Views' },
         ]} />
+        <SelectInput label="RIPE RIS RRC" source="parameters.ripe_ris_rrc" choices={ripe_ris_rrcs   } />
         <div className={stylesAdmin.inlineGroupFields}>
         <TextInput source="parameters.date_start" helperText="format: YYYYMMDD" label="Date start"/>
         {/* <TextInput source="parameters.time_start" helperText="format: HHMM" label="Time start"/> */}
@@ -25,7 +26,7 @@ export const TaskTypeBGP = () => (
         {/* <DateTimeInput source="parameters.anomalous_datetime_start" /> */}
         {/* <DateTimeInput source="parameters.anomalous_datetime_end" /> */}
         </div>
-        <div className={stylesAdmin.inlineGroupFields}>
+        {/* <div className={stylesAdmin.inlineGroupFields}>
         <NumberInput source="parameters.data_partition_training"  />
         <NumberInput source="parameters.data_partition_testing"  />
         </div>
@@ -33,15 +34,15 @@ export const TaskTypeBGP = () => (
         { id: '5', name: '5' },
         { id: '10', name: '10' },
         { id: '20', name: '20' },
-        ]} />
-        <RadioButtonGroupInput source="parameters.cache" defaultValue="cache" label="Cache"  choices={[
+        ]} /> */}
+        {/* <RadioButtonGroupInput source="parameters.cache" defaultValue="cache" label="Cache"  choices={[
         { id: 'activated', name: 'Activated' },
         { id: 'disabled', name: 'Disabled' },
         ]} />
         <RadioButtonGroupInput source="parameters.debug" defaultValue="debug" label="Debug" choices={[
         { id: 'activated', name: 'Activated' },
         { id: 'disabled', name: 'Disabled' },
-        ]} />
+        ]} /> */}
     </>
                   
 )

@@ -9,6 +9,9 @@ export const TaskTypeBGPShow = () => (
                             <Labeled label="Collection site">
                                 <TextField textTransform="uppercase" source="parameters.collection_site"/>
                             </Labeled>
+                            <Labeled label="RRC">
+                                <TextField textTransform="uppercase" source="parameters.ripe_ris_rrc"/>
+                            </Labeled>
                         </div>
                         <div className={stylesAdmin.inlineShowGroupFields}>
                             <Labeled label="Date analysis start">
@@ -32,7 +35,7 @@ export const TaskTypeBGPShow = () => (
                                 <TextField source="parameters.anomalous_time_end" />
                             </Labeled>
                         </div>
-                        <div className={stylesAdmin.inlineShowGroupFields}>
+                        {/* <div className={stylesAdmin.inlineShowGroupFields}>
                             <Labeled label="Data Partition Training (%)">
                                 <NumberField source="parameters.data_partition_training" />
                             </Labeled>
@@ -49,7 +52,7 @@ export const TaskTypeBGPShow = () => (
                             <Labeled label="Debug">
                                 <TextField source="parameters.debug"/>
                             </Labeled>
-                        </div>
+                        </div> */}
         </SimpleShowLayout> 
     </>
                   
