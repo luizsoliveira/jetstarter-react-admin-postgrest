@@ -4,6 +4,7 @@ import { DateField, ReferenceField, RichTextField, Show, SimpleShowLayout, Tabbe
 import { TaskTypeBGPShow } from './TaskTypeBGPShow';
 import TaskSocket from './socket/TaskSocket';
 import DatasetTable from './socket/DatasetTable';
+import DatasetFeaturesGraphs from './socket/DatasetFeaturesGraphs';
 
 export const TaskShow = () => {
 return (
@@ -28,8 +29,11 @@ return (
             <TabbedForm.Tab label="Terminal">
                 <TaskSocket/>
             </TabbedForm.Tab>
-            <TabbedForm.Tab label="DATASET">
+            <TabbedForm.Tab label="Dataset">
                 <DatasetTable/>
+            </TabbedForm.Tab>
+            <TabbedForm.Tab label="Features">
+                <DatasetFeaturesGraphs/>
             </TabbedForm.Tab>
         </TabbedForm>
     </Show>
