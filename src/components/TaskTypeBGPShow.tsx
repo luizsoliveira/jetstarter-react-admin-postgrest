@@ -1,4 +1,4 @@
-import { Labeled, NumberField, SimpleShowLayout, TextField } from "react-admin";
+import { Labeled, SimpleShowLayout, TextField } from "react-admin";
 import stylesAdmin from '../styles/admin.module.css'
 // import React from "react";
 
@@ -42,7 +42,7 @@ export const TaskTypeBGPShow = () => (
                             <Labeled label="Data Partition Testing (%)">
                                 <NumberField source="parameters.data_partition_testing" />
                             </Labeled>
-                        </div>
+                        </div> */}
                         <div className={stylesAdmin.inlineShowGroupFields}>
                             <Labeled label="Cache">
                                 <TextField source="parameters.cache"/>
@@ -52,7 +52,7 @@ export const TaskTypeBGPShow = () => (
                             <Labeled label="Debug">
                                 <TextField source="parameters.debug"/>
                             </Labeled>
-                        </div> */}
+                        </div>
         </SimpleShowLayout> 
     </>
                   

@@ -49,7 +49,7 @@ export const ripe_ris_rrcs = [
     },
     {
         id: 15,
-        name: 'RRC15 - Sao Paolo, BR - IXP' 
+        name: 'RRC15 - São Paulo, BR - IXP' 
     },
     {
         id: 16,

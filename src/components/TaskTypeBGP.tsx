@@ -1,4 +1,4 @@
-import {RadioButtonGroupInput, NumberInput, SelectInput, TextInput, Labeled } from "react-admin";
+import {RadioButtonGroupInput, SelectInput, TextInput } from "react-admin";
 import stylesAdmin from '../styles/admin.module.css'
 import { ripe_ris_rrcs } from "../consts/ripe_ris_rrcs";
 // import { DateInput, TimeInput, DateTimeInput } from 'react-admin';
@@ -35,14 +35,14 @@ export const TaskTypeBGP = () => (
         { id: '10', name: '10' },
         { id: '20', name: '20' },
         ]} /> */}
-        {/* <RadioButtonGroupInput source="parameters.cache" defaultValue="cache" label="Cache"  choices={[
+        <RadioButtonGroupInput source="parameters.cache" defaultValue="cache" label="Cache"  choices={[
         { id: 'activated', name: 'Activated' },
         { id: 'disabled', name: 'Disabled' },
         ]} />
         <RadioButtonGroupInput source="parameters.debug" defaultValue="debug" label="Debug" choices={[
         { id: 'activated', name: 'Activated' },
         { id: 'disabled', name: 'Disabled' },
-        ]} /> */}
+        ]} />
     </>
                   
 )

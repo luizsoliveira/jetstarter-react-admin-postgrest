@@ -6,7 +6,7 @@ import ws_api from '../../lib/axios';
 import { useRecordContext } from 'ra-core';
 import { LineChart } from '../LineChart';
 
-import { features } from '../../lib/features'
+import { features } from '../../consts/features'
 
   const sliceData = (dataset, column: string) => {
 
