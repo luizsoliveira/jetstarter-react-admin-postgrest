@@ -1,150 +1,224 @@
 export const features = [
     {
         id: 1,
-        name: "Number of announcements"
+        name: "Number of announcements",
+        category: "volume",
+        definition: "Routes available for delivery of data",
     },
     {
         id: 2,
-        name: "Number of withdrawals"
+        name: "Number of withdrawals",
+        category: "volume",
+        definition: "Routes no longer reachable",
     },
     {
         id: 3,
-        name: "Number of announced NLRI prefixes"
+        name: "Number of announced NLRI prefixes",
+        category: "volume",
+        definition: "BGP update messages that have type field set to announcement",
     },
     {
         id: 4,
-        name: "Number of withdrawn NLRI prefixes"
+        name: "Number of withdrawn NLRI prefixes",
+        category: "volume",
+        definition: "BGP update messages that have type field set to withdrawal",
     },
     {
         id: 5,
-        name: "Average AS-path length"
+        name: "Average AS-path length",
+        category: "AS-path",
+        definition: "Various AS-path lengths",
     },
     {
         id: 6,
-        name: "Maximum AS-path length"
+        name: "Maximum AS-path length",
+        category: "AS-path",
+        definition: "Various AS-path lengths",
     },
     {
         id: 7,
-        name: "Average unique AS-path length"
+        name: "Average unique AS-path length",
+        category: "AS-path",
+        definition: "Various AS-path lengths",
     },
     {
         id: 8,
-        name: "Number of duplicate announcements"
+        name: "Number of duplicate announcements",
+        category: "volume",
+        definition: "Duplicate BGP update messages with type field set to announcement",
     },
     {
         id: 9,
-        name: "Number of implicit withdrawals"
+        name: "Number of implicit withdrawals",
+        category: "volume",
+        definition: "",
     },
     {
         id: 10,
-        name: "Number of duplicate withdrawals"
+        name: "Number of duplicate withdrawals",
+        category: "volume",
+        definition: "Duplicate BGP update messages with type field set to withdrawal",
     },
     {
         id: 11,
-        name: "Maximum edit distance"
+        name: "Maximum edit distance",
+        category: "AS-path",
+        definition: "Maximum of edit distances of messages",
     },
     {
         id: 12,
-        name: "Arrival rate"
+        name: "Arrival rate",
+        category: "volume",
+        definition: "Average number of messages arrived during one-minute time interval",
     },
     {
         id: 13,
-        name: "Average edit distance"
+        name: "Average edit distance",
+        category: "AS-path",
+        definition: "Average of edit distances of messages",
     },
     {
         id: 14,
-        name: "Maximum AS-path = 11"
+        name: "Maximum AS-path = 11",
+        category: "AS-path",
+        definition: "Histograms with the most frequent values of maximum AS-path length",
     },
     {
         id: 15,
-        name: "Maximum AS-path = 12"
+        name: "Maximum AS-path = 12",
+        category: "AS-path",
+        definition: "Histograms with the most frequent values of maximum AS-path length",
     },
     {
         id: 16,
-        name: "Maximum AS-path = 13"
+        name: "Maximum AS-path = 13",
+        category: "AS-path",
+        definition: "Histograms with the most frequent values of maximum AS-path length",
     },
     {
         id: 17,
-        name: "Maximum AS-path = 14"
+        name: "Maximum AS-path = 14",
+        category: "AS-path",
+        definition: "Histograms with the most frequent values of maximum AS-path length",
     },
     {
         id: 18,
-        name: "Maximum AS-path = 15"
+        name: "Maximum AS-path = 15",
+        category: "AS-path",
+        definition: "Histograms with the most frequent values of maximum AS-path length",
     },
     {
         id: 19,
-        name: "Maximum AS-path = 16"
+        name: "Maximum AS-path = 16",
+        category: "AS-path",
+        definition: "Histograms with the most frequent values of maximum AS-path length",
     },
     {
         id: 20,
-        name: "Maximum AS-path = 17"
+        name: "Maximum AS-path = 17",
+        category: "AS-path",
+        definition: "Histograms with the most frequent values of maximum AS-path length",
     },
     {
         id: 21,
-        name: "Maximum AS-path = 18"
+        name: "Maximum AS-path = 18",
+        category: "AS-path",
+        definition: "Histograms with the most frequent values of maximum AS-path length",
     },
     {
         id: 22,
-        name: "Maximum AS-path = 19"
+        name: "Maximum AS-path = 19",
+        category: "AS-path",
+        definition: "Histograms with the most frequent values of maximum AS-path length",
     },
     {
         id: 23,
-        name: "Maximum AS-path = 20"
+        name: "Maximum AS-path = 20",
+        category: "AS-path",
+        definition: "Histograms with the most frequent values of maximum AS-path length",
     },
     {
         id: 24,
-        name: "Maximum edit distance = 7"
+        name: "Maximum edit distance = 7",
+        category: "AS-path",
+        definition: "Histograms with the most frequent values of maximum AS-path edit distance",
     },
     {
         id: 25,
-        name: "Maximum edit distance = 8"
+        name: "Maximum edit distance = 8",
+        category: "AS-path",
+        definition: "Histograms with the most frequent values of maximum AS-path edit distance",
     },
     {
         id: 26,
-        name: "Maximum edit distance = 9"
+        name: "Maximum edit distance = 9",
+        category: "AS-path",
+        definition: "Histograms with the most frequent values of maximum AS-path edit distance",
     },
     {
         id: 27,
-        name: "Maximum edit distance = 10"
+        name: "Maximum edit distance = 10",
+        category: "AS-path",
+        definition: "Histograms with the most frequent values of maximum AS-path edit distance",
     },
     {
         id: 28,
-        name: "Maximum edit distance = 11"
+        name: "Maximum edit distance = 11",
+        category: "AS-path",
+        definition: "Histograms with the most frequent values of maximum AS-path edit distance",
     },
     {
         id: 29,
-        name: "Maximum edit distance = 12"
+        name: "Maximum edit distance = 12",
+        category: "AS-path",
+        definition: "Histograms with the most frequent values of maximum AS-path edit distance",
     },
     {
         id: 30,
-        name: "Maximum edit distance = 13"
+        name: "Maximum edit distance = 13",
+        category: "AS-path",
+        definition: "Histograms with the most frequent values of maximum AS-path edit distance",
     },
     {
         id: 31,
-        name: "Maximum edit distance = 14"
+        name: "Maximum edit distance = 14",
+        category: "AS-path",
+        definition: "Histograms with the most frequent values of maximum AS-path edit distance",
     },
     {
         id: 32,
-        name: "Maximum edit distance = 15"
+        name: "Maximum edit distance = 15",
+        category: "AS-path",
+        definition: "Histograms with the most frequent values of maximum AS-path edit distance",
     },
     {
         id: 33,
-        name: "Maximum edit distance = 16"
+        name: "Maximum edit distance = 16",
+        category: "AS-path",
+        definition: "Histograms with the most frequent values of maximum AS-path edit distance",
     },
     {
         id: 34,
-        name: "Number of Interior Gateway Protocol (IGP) packets"
+        name: "Number of Interior Gateway Protocol (IGP) packets",
+        category: "volume",
+        definition: "BGP update messages generated by IGP sources",
     },
     {
         id: 35,
-        name: "Number of Exterior Gateway Protocol (EGP) packets"
+        name: "Number of Exterior Gateway Protocol (EGP) packets",
+        category: "volume",
+        definition: "BGP update messages generated by EGP sources",
     },
     {
         id: 36,
-        name: "Number of incomplete packets"
+        name: "Number of incomplete packets",
+        category: "volume",
+        definition: "BGP update messages generated by unknown sources",
     },
     {
         id: 37,
-        name: "Packet size (B)"
+        name: "Packet size (B)",
+        category: "volume",
+        definition: "Average size of received BGP update messages in bytes",
     },
   ]
