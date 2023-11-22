@@ -59,7 +59,6 @@ function ZoomableLineChart(props: inputProps) {
     const { width, height } =
       dimensions || wrapperRef.current.getBoundingClientRect();
 
-    console.log({ width, height })  
     // scales + line generator
     // const xScale = scaleLinear()
     //   .domain([0, data.length - 1])

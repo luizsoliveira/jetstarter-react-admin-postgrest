@@ -5,7 +5,7 @@ export const TaskInputShow = () => (
         let html
         if (data.length > 0) {
             for (const obj in data[0]) {
-                console.log(`${obj}: ${data[0][obj]} `)
+                // console.log(`${obj}: ${data[0][obj]} `)
                 html +=`${obj}: ${data[0][obj]} `
             }
         }

@@ -25,7 +25,7 @@ export default function TaskSocket() {
     if (newLineNumber > last_line_printed) {
       const begin = parseInt(last_line_printed) + 1
       const end = parseInt(newLineNumber)
-      console.log(begin, end)
+      // console.log(begin, end)
 
       ws_api.get(`/stdout_segment/${task.id}/${begin}/${end}`,{
       })

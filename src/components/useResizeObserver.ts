@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import ResizeObserver from "resize-observer-polyfill";
+// import ResizeObserver from "resize-observer-polyfill";
 
 /**
  * Hook, that returns the current dimensions of an HTML element.
