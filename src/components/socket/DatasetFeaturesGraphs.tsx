@@ -4,9 +4,12 @@
 import React, {useEffect, useState} from 'react';
 import ws_api from '../../lib/axios';
 import { useRecordContext } from 'ra-core';
-import { LineChart } from '../LineChart';
+// import { LineChart } from '../LineChart';
 
 import { features } from '../../consts/features'
+import { ZoomLineChart } from '../ZoomLineChart';
+import { LineChart } from '../LineChart';
+import ZoomableLineChart from '../ZoomableLineChart';
 
   const sliceData = (dataset, column: string) => {
 
@@ -57,8 +60,11 @@ export default function DatasetFeaturesGraphs() {
     // console.log(features)
 
     const graphItems = features.map((feature) => {
-      return <LineChart key={feature.name} data={sliceData(datasetRows, `F${feature.id}`)} title={feature.name} feature_id={feature.id}/>
+      //  return <LineChart key={feature.name} data={sliceData(datasetRows, `F${feature.id}`)} title={feature.name} feature_id={feature.id}/>
+      return <ZoomableLineChart key={feature.name} data={sliceData(datasetRows, `F${feature.id}`)} title={feature.name} feature_id={feature.id} sample_length={100}/>
     });
+
+    
     
     return (
         <div>
@@ -67,7 +73,7 @@ export default function DatasetFeaturesGraphs() {
     );
 
   } else return (
-    <p>Datset not ready yet.</p>
+    <p>Dataset not ready yet.</p>
   );
 
   

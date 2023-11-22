@@ -15,4 +15,7 @@ export default defineConfig({
     },
     //base: './cnl/',
     base: '/cnl/',
+    build: {
+        chunkSizeWarningLimit: 1600,
+    },
 });

@@ -1,0 +1,44 @@
+.zoomable-chart-container {
+    margin-left: 30px;
+    width:1000px
+
+}
+
+.zoomable-chart-container > svg {
+  display: block;
+  width: 100%;
+  height: 300px;
+  background: #f7f7f7;
+  overflow: visible;
+}
+
+svg rect.selection {
+  stroke: none;
+}
+
+.feature-container {
+  max-width: 1220px;
+  /* margin: 0 auto; */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  /* height: 100vh; */
+  /* padding: 0 50px; */
+  text-align: center;
+  box-sizing: border-box;
+  margin-bottom: 2rem;
+}
+
+.feature-header {
+    display: block;
+}
+
+.feature-header span {
+    float: left
+}
+
+.feature-header button {
+    float: right
+}
+
