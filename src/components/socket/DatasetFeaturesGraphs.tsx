@@ -7,28 +7,27 @@ import { useRecordContext } from 'ra-core';
 // import { LineChart } from '../LineChart';
 
 import { features } from '../../consts/features'
-import { ZoomLineChart } from '../ZoomLineChart';
-import { LineChart } from '../LineChart';
 import ZoomableLineChart from '../ZoomableLineChart';
 
-  const sliceData = (dataset, column: string) => {
+  // const sliceData = (dataset, column: string) => {
 
-    let slicedArray = []
+  //   let slicedArray = []
 
-    for (const row of dataset) {
-      slicedArray.push({
-        datetime: row['DATETIME'],
-        value: row[column],
-        label: row['LABEL'],
-      })
-    }
-    return slicedArray
-  }
+  //   for (const row of dataset) {
+  //     slicedArray.push({
+  //       datetime: row['DATETIME'],
+  //       value: row[column],
+  //       label: row['LABEL'],
+  //     })
+  //   }
+  //   return slicedArray
+  // }
 
 
 export default function DatasetFeaturesGraphs() {
 
   const [datasetRows, setDatasetRows] = useState([]);
+  
 
   const task = useRecordContext();
   if (!task) return null;
@@ -61,7 +60,8 @@ export default function DatasetFeaturesGraphs() {
 
     const graphItems = features.map((feature) => {
       //  return <LineChart key={feature.name} data={sliceData(datasetRows, `F${feature.id}`)} title={feature.name} feature_id={feature.id}/>
-      return <ZoomableLineChart key={feature.name} data={sliceData(datasetRows, `F${feature.id}`)} title={feature.name} feature_id={feature.id} sample_length={100}/>
+      // return <ZoomableLineChart key={feature.name} data={sliceData(datasetRows, `F${feature.id}`)} title={feature.name} feature_id={feature.id} sample_length={100}/>
+      return <ZoomableLineChart key={feature.name} data={datasetRows} title={feature.name} feature_id={feature.id}/>
     });
 
     
@@ -73,7 +73,7 @@ export default function DatasetFeaturesGraphs() {
     );
 
   } else return (
-    <p>Dataset not ready yet.</p>
+    <p>Dataset is not ready yet.</p>
   );
 
   

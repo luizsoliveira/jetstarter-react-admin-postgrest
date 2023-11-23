@@ -22,14 +22,13 @@ interface inputProps {
   data: Array,
   title: string,
   feature_id: number,
-  sample_length: number,
 }
 
 /**
  * Component that renders a ZoomableLineChart
  */
 
-function ZoomableLineChart(props: inputProps) {
+export default function ZoomableLineChart(props: inputProps) {
   const svgRef = useRef();
   const wrapperRef = useRef();
   const dimensions = useResizeObserver(wrapperRef);
@@ -47,11 +46,14 @@ function ZoomableLineChart(props: inputProps) {
   // will be called initially and on every data change
   useEffect(() => {
     let parseTime = timeParse("%Y-%m-%dT%H:%M:%S");
+
     data.forEach((d) => {
-        d.date = parseTime(d.datetime);
-        d.value = parseInt(d.value);
-        d.label = parseInt(d.label);
+        d.date = parseTime(d.DATETIME);
+        d.value = parseInt(d[`F${props.feature_id}`]);
+        d.label = parseInt(d.LABEL);
     }); 
+
+    //console.log(data)
 
 
     const svg = select(svgRef.current);
@@ -135,7 +137,7 @@ function ZoomableLineChart(props: inputProps) {
 
     // zoom
     zoomBehavior = zoom()
-      .scaleExtent([0.5, 100])
+      .scaleExtent([0.9, 3000])
       .translateExtent([
         [0, 0],
         [width, height],
@@ -192,5 +194,3 @@ function ZoomableLineChart(props: inputProps) {
     </React.Fragment>
   );
 }
-
-export default ZoomableLineChart;
