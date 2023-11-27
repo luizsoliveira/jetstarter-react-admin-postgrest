@@ -44,6 +44,11 @@ export const TaskTypeBGPShow = () => (
                             </Labeled>
                         </div> */}
                         <div className={stylesAdmin.inlineShowGroupFields}>
+                            <Labeled label="Feature extraction tool">
+                                <TextField source="parameters.fe_system"/>
+                            </Labeled>
+                        </div>
+                        <div className={stylesAdmin.inlineShowGroupFields}>
                             <Labeled label="Cache">
                                 <TextField source="parameters.cache"/>
                             </Labeled>

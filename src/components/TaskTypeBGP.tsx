@@ -35,11 +35,15 @@ export const TaskTypeBGP = () => (
         { id: '10', name: '10' },
         { id: '20', name: '20' },
         ]} /> */}
-        <RadioButtonGroupInput source="parameters.cache" defaultValue="cache" label="Cache"  choices={[
+        <RadioButtonGroupInput source="parameters.fe_system" defaultValue="c_sharp" label="Feature extraction tool"  choices={[
+        { id: 'c_sharp', name: 'CSharp tool' },
+        { id: 'c_plusplus', name: 'C++ tool' },
+        ]} />
+        <RadioButtonGroupInput source="parameters.cache" defaultValue="activated" label="Cache"  choices={[
         { id: 'activated', name: 'Activated' },
         { id: 'disabled', name: 'Disabled' },
         ]} />
-        <RadioButtonGroupInput source="parameters.debug" defaultValue="debug" label="Debug" choices={[
+        <RadioButtonGroupInput source="parameters.debug" defaultValue="disabled" label="Debug" choices={[
         { id: 'activated', name: 'Activated' },
         { id: 'disabled', name: 'Disabled' },
         ]} />
