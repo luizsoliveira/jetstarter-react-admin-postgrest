@@ -12,6 +12,7 @@
   "dependencies": {
     "@mui/icons-material": "^5.14.9",
     "@mui/material": "^5.14.9",
+    "@mui/x-data-grid": "^6.18.3",
     "@raphiniert/ra-data-postgrest": "^2.0.0-alpha.3",
     "@testing-library/react": "^14.0.0",
     "axios": "^1.5.1",

@@ -5,6 +5,7 @@ import { TaskTypeBGPShow } from './TaskTypeBGPShow';
 import TaskSocket from './socket/TaskSocket';
 import DatasetTable from './socket/DatasetTable';
 import DatasetFeaturesGraphs from './socket/DatasetFeaturesGraphs';
+import FeatureSelectionImportances from './FeatureSelectionImportances';
 
 export const TaskShow = () => {
 return (
@@ -32,8 +33,11 @@ return (
             <TabbedForm.Tab label="Dataset">
                 <DatasetTable/>
             </TabbedForm.Tab>
-            <TabbedForm.Tab label="Features">
+            <TabbedForm.Tab label="Features Charts">
                 <DatasetFeaturesGraphs/>
+            </TabbedForm.Tab>
+            <TabbedForm.Tab label="Feature Selection">
+                <FeatureSelectionImportances/>
             </TabbedForm.Tab>
         </TabbedForm>
     </Show>
