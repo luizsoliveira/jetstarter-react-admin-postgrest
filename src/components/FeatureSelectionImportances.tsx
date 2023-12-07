@@ -8,8 +8,6 @@ import { useRecordContext } from 'ra-core';
 
 import { features } from '../consts/features'
 import {DataGrid, GridColDef} from '@mui/x-data-grid'
-import { error } from 'console';
-
 
 export default function FeatureSelectionImportances() {
 
