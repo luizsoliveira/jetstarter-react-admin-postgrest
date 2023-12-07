@@ -1,11 +1,10 @@
 // in src/App.js
-import * as React from "react";
+// import * as React from "react";
 import {
   Admin,
   Resource,
   fetchUtils,
   ListGuesser,
-  // EditGuesser,
   ShowGuesser,
 } from "react-admin";
 import postgrestRestProvider, {
@@ -24,10 +23,10 @@ import { ProjectEdit } from "./components/ProjectEdit";
 
 import { ProjectMemberCreate } from "./components/ProjectMemberCreate";
 
-import { TaskList } from "./components/TaskList";
-import { TaskCreate } from "./components/TaskCreate";
-import { TaskShow } from "./components/TaskShow";
-import { TaskEdit } from "./components/TaskEdit";
+import { DatasetList } from "./components/DatasetList";
+import { DatasetCreate } from "./components/DatasetCreate";
+import { DatasetShow } from "./components/DatasetShow";
+import { DatasetEdit } from "./components/DatasetEdit";
 
 import { TaskTypeList } from "./components/TaskTypeList";
 import { TaskTypeCreate } from "./components/TaskTypeCreate";
@@ -82,7 +81,7 @@ export const App = () => (
     <Resource
       name="projects"
       recordRepresentation={(record) => `${record.title}`}
-      list={ProjectList}
+      // list={ProjectList}
       show={ProjectShow}
       edit={ProjectEdit}
       create={ProjectCreate}
@@ -90,18 +89,18 @@ export const App = () => (
     <Resource
       name="project_members"
       recordRepresentation={(record) => `${record.project_id}-${record.user_id}`}
-      list={ListGuesser}
+      // list={ListGuesser}
       // show={ShowGuesser}
       create={ProjectMemberCreate}
       // edit={TaskTypeEdit}
     />
     <Resource
-      name="tasks"
+      name="datasets"
       recordRepresentation={(record) => `${record.title}`}
-      list={TaskList}
-      show={TaskShow}
-      create={TaskCreate}
-      edit={TaskEdit}
+      list={DatasetList}
+      show={DatasetShow}
+      create={DatasetCreate}
+      edit={DatasetEdit}
       
     />
     

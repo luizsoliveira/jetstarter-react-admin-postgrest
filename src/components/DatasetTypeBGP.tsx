@@ -3,7 +3,7 @@ import stylesAdmin from '../styles/admin.module.css'
 import { ripe_ris_rrcs } from "../consts/ripe_ris_rrcs";
 // import { DateInput, TimeInput, DateTimeInput } from 'react-admin';
 
-export const TaskTypeBGP = () => (
+export const DatasetTypeBGP = () => (
     <>
         <RadioButtonGroupInput source="parameters.collection_site"  choices={[
         { id: 'ripe', name: 'RIPE' },

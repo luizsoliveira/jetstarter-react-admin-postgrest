@@ -1,8 +1,8 @@
-import { DateInput, Create, ReferenceInput, SimpleFormIterator, TextInput, ArrayInput, NumberInput, DateTimeInput, required, RadioButtonGroupInput, TabbedForm, choices, SelectInput } from 'react-admin';
+import { Create, ReferenceInput, TextInput, required, TabbedForm } from 'react-admin';
 import { RichTextInput } from 'ra-input-rich-text';
-import { TaskTypeBGP } from './TaskTypeBGP';
+import { DatasetTypeBGP } from './DatasetTypeBGP';
 
-export const TaskCreate = () => (
+export const DatasetCreate = () => (
     <Create>
         <TabbedForm>
             <TabbedForm.Tab label="Summary">
@@ -12,7 +12,7 @@ export const TaskCreate = () => (
                 <ReferenceInput source="task_type_id" reference="task_types" fullWidth validate={[required()]}/>
             </TabbedForm.Tab>
             <TabbedForm.Tab label="Input">
-               <TaskTypeBGP/> 
+               <DatasetTypeBGP/> 
             </TabbedForm.Tab>
         </TabbedForm>
     </Create>

@@ -1,7 +1,7 @@
 // import stylesAdmin from  '../../styles/admin.module.css'
 // import { Checkbox, FormControlLabel } from '@mui/material';
 
-import React, {useEffect, useState} from 'react';
+import {useEffect, useState} from 'react';
 import ws_api from '../lib/axios';
 import { useRecordContext } from 'ra-core';
 // import { LineChart } from '../LineChart';
@@ -11,7 +11,7 @@ import {DataGrid, GridColDef} from '@mui/x-data-grid'
 
 export default function FeatureSelectionImportances() {
 
-  const [importanceRows, setImportanceRows] = useState([]);
+const [importanceRows, setImportanceRows] = useState([]);
   
 
   const task = useRecordContext();

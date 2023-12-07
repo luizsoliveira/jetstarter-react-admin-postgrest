@@ -7,7 +7,7 @@ import DatasetTable from './socket/DatasetTable';
 import DatasetFeaturesGraphs from './socket/DatasetFeaturesGraphs';
 import FeatureSelectionImportances from './FeatureSelectionImportances';
 
-export const TaskShow = () => {
+export const DatasetShow = () => {
 return (
     <Show>
         <TabbedForm>

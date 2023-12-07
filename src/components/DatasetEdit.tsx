@@ -1,9 +1,9 @@
 import { Edit, ReferenceInput, TextInput, DateTimeInput, required, TabbedForm } from 'react-admin';
 import { RichTextInput } from 'ra-input-rich-text';
 
-import { TaskTypeBGP } from './TaskTypeBGP';
+import { DatasetTypeBGP } from './DatasetTypeBGP';
 
-export const TaskEdit = () => (
+export const DatasetEdit = () => (
     <Edit>
         <TabbedForm>
             <TabbedForm.Tab label="Summary">
@@ -15,7 +15,7 @@ export const TaskEdit = () => (
                 <DateTimeInput source="finished_at"/>
             </TabbedForm.Tab>
             <TabbedForm.Tab label="Input">
-                <TaskTypeBGP/>
+                <DatasetTypeBGP/>
             </TabbedForm.Tab>
         </TabbedForm>
     </Edit>
