@@ -1,7 +1,7 @@
 import { DateField, ReferenceField, RichTextField, Show, SimpleShowLayout, TabbedForm, TextField } from 'react-admin';
 //import { TaskInputShow } from './TaskInputShow';
 // import stylesAdmin from '../styles/admin.module.css'
-import { TaskTypeBGPShow } from './TaskTypeBGPShow';
+import { DatasetTypeBGPShow } from './DatasetTypeBGPShow';
 import TaskSocket from './socket/TaskSocket';
 import DatasetTable from './socket/DatasetTable';
 import DatasetFeaturesGraphs from './socket/DatasetFeaturesGraphs';
@@ -13,7 +13,7 @@ return (
         <TabbedForm>
             <TabbedForm.Tab label="Summary">
                 <SimpleShowLayout>
-                <ReferenceField source="project_id" reference="projects"/>
+                {/* <ReferenceField source="project_id" reference="projects"/> */}
                 <TextField source="id" />
                 <TextField source="title" />
                 <RichTextField source="description"/>
@@ -25,7 +25,7 @@ return (
                 </SimpleShowLayout>
             </TabbedForm.Tab>
             <TabbedForm.Tab label="Input">     
-                <TaskTypeBGPShow/>
+                <DatasetTypeBGPShow/>
             </TabbedForm.Tab>
             <TabbedForm.Tab label="Terminal">
                 <TaskSocket/>
@@ -35,9 +35,6 @@ return (
             </TabbedForm.Tab>
             <TabbedForm.Tab label="Features Charts">
                 <DatasetFeaturesGraphs/>
-            </TabbedForm.Tab>
-            <TabbedForm.Tab label="Feature Selection">
-                <FeatureSelectionImportances/>
             </TabbedForm.Tab>
         </TabbedForm>
     </Show>

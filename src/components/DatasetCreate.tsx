@@ -6,7 +6,7 @@ export const DatasetCreate = () => (
     <Create>
         <TabbedForm>
             <TabbedForm.Tab label="Summary">
-                <ReferenceInput source="project_id" reference="projects" fullWidth validate={[required()]}/>
+                {/* <ReferenceInput source="project_id" reference="projects" fullWidth validate={[required()]}/> */}
                 <TextInput source="title" resettable fullWidth validate={[required()]}/>
                 <RichTextInput source="description" fullWidth />
                 <ReferenceInput source="task_type_id" reference="task_types" fullWidth validate={[required()]}/>

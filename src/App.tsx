@@ -6,6 +6,7 @@ import {
   fetchUtils,
   ListGuesser,
   ShowGuesser,
+  EditGuesser,
 } from "react-admin";
 import postgrestRestProvider, {
   IDataProviderConfig,
@@ -16,7 +17,7 @@ import { UserCreate } from "./components/UserCreate";
 import { UserEdit } from "./components/UserEdit";
 import { UserShow } from "./components/UserShow";
 
-import { ProjectList } from "./components/ProjectList";
+// import { ProjectList } from "./components/ProjectList";
 import { ProjectShow } from "./components/ProjectShow";
 import { ProjectCreate } from "./components/ProjectCreate";
 import { ProjectEdit } from "./components/ProjectEdit";
@@ -36,6 +37,10 @@ import { authProvider } from "./authProvider";
 
 import {AppTheme} from "./AppTheme"
 import {Login} from "./components/auth";
+import { ExperimentShow } from "./components/ExperimentShow";
+import { ExperimentCreate } from "./components/ExperimentCreate";
+import { ExperimentList } from "./components/ExperimentList";
+import { ExperimentEdit } from "./components/ExperimentEdit";
 
 interface httpClientOptions {
   headers: any
@@ -101,7 +106,15 @@ export const App = () => (
       show={DatasetShow}
       create={DatasetCreate}
       edit={DatasetEdit}
-      
+    />
+
+    <Resource
+      name="experiments"
+      recordRepresentation={(record) => `${record.title}`}
+      list={ExperimentList}
+      show={ExperimentShow}
+      create={ExperimentCreate}
+      edit={ExperimentEdit}
     />
     
     <Resource

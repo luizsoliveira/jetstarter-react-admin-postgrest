@@ -14,11 +14,11 @@ export default function FeatureSelectionImportances() {
 const [importanceRows, setImportanceRows] = useState([]);
   
 
-  const task = useRecordContext();
-  if (!task) return null;
-  
+  const record = useRecordContext();
+  if (!record) return null;
+    
   async function getRowsRemotely() {
-    ws_api.get(`/dataset/${task.id}/fs_importances`,{
+    ws_api.get(`/dataset/${record.dataset_id}/fs_importances`,{
     })
     .then(response => {
       //Converting object with multiple attributes to array with key/value pair
