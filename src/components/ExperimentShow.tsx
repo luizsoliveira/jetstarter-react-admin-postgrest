@@ -1,6 +1,10 @@
 import { DateField, ReferenceField, RichTextField, Show, SimpleShowLayout, TabbedForm, TextField } from 'react-admin';
 
 import FeatureSelectionImportances from './FeatureSelectionImportances';
+import { ExperimentTypeBGPShow } from './ExperimentTypeBGPShow';
+import TaskSocket from './socket/TaskSocket';
+import DatasetTable from './socket/DatasetTable';
+import ExperimentEDA from './ExperimentEDA';
 
 export const ExperimentShow = () => {
 return (
@@ -21,16 +25,16 @@ return (
                 </SimpleShowLayout>
             </TabbedForm.Tab>
             <TabbedForm.Tab label="Input">     
-                
+                <ExperimentTypeBGPShow/>
             </TabbedForm.Tab>
             <TabbedForm.Tab label="Terminal">
-                
+                <TaskSocket/>
             </TabbedForm.Tab>
             <TabbedForm.Tab label="Dataset">
-                
+                <DatasetTable/>
             </TabbedForm.Tab>
             <TabbedForm.Tab label="EDA">
-                
+                <ExperimentEDA/>
             </TabbedForm.Tab>
             <TabbedForm.Tab label="Feature Selection">
                 <FeatureSelectionImportances/>
