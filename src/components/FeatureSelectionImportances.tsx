@@ -18,7 +18,7 @@ const [importanceRows, setImportanceRows] = useState([]);
   if (!record) return null;
     
   async function getRowsRemotely() {
-    ws_api.get(`/dataset/${record.dataset_id}/fs_importances`,{
+    ws_api.get(`/task/${record.id}/fs_importances.json`,{
     })
     .then(response => {
       //Converting object with multiple attributes to array with key/value pair
@@ -53,7 +53,8 @@ const [importanceRows, setImportanceRows] = useState([]);
   if (importanceRows.length>0) {
 
     const columns: GridColDef[] = [
-      { field: 'feature', headerName: 'Feature', width: 100, sortable: false, },
+      { field: 'id', headerName: 'Feature ID', width: 100, sortable: true, },
+      // { field: 'feature', headerName: 'Feature', width: 100, sortable: false, },
       { field: 'description', headerName: 'Description', width: 500, sortable: false, },
       { field: 'importance', headerName: 'Importance', width: 250 },
     ];
