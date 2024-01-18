@@ -39,6 +39,15 @@ export const DatasetTypeBGP = () => (
         { id: 'c_sharp', name: 'CSharp tool' },
         { id: 'c_plusplus', name: 'C++ tool' },
         ]} />
+        <div className={stylesAdmin.inlineGroupFields}>
+            <TextInput fullWidth multiline={true} resettable={true} source="parameters.filter_asn" helperText="Fill with the AS numbers separated by colon ':'. Leave it blank to avoid filtering." label="Filter messages by AS numbers"/>
+        </div>
+        <div className={stylesAdmin.inlineGroupFields}>
+            <TextInput fullWidth multiline={true} resettable={true} source="parameters.filter_ipv4" helperText="Fill with the NLRI IPv4 addresses separated by comma ','. Leave it blank to avoid filtering." label="Filter messages by NLRI IPv4 addresses"/>
+        </div>
+        <div className={stylesAdmin.inlineGroupFields}>
+            <TextInput fullWidth multiline={true} resettable={true} source="parameters.filter_ipv6" helperText="Put the NLRI IPv6 addresses separated by comma ','. Leave it blank to avoid filtering." label="Filter messages by NLRI IPv6 addresses"/>
+        </div>
         <RadioButtonGroupInput source="parameters.cache" defaultValue="activated" label="Cache"  choices={[
         { id: 'activated', name: 'Activated' },
         { id: 'disabled', name: 'Disabled' },
