@@ -34,7 +34,7 @@ return (
                 <DatasetTable/>
             </TabbedForm.Tab>
             <TabbedForm.Tab label="Features Charts">
-                <DatasetFeaturesGraphs/>
+                <DatasetFeaturesGraphs key={Math.random()}/>
             </TabbedForm.Tab>
         </TabbedForm>
     </Show>
