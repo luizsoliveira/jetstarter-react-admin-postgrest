@@ -16,10 +16,12 @@ import {
 import useResizeObserver from "./useResizeObserver";
 
 import './Chart.css'
-import { Button } from "@mui/material";
+import { Button, Skeleton } from "@mui/material";
+
+import { DatasetRowProps } from "../types/datasetRow";
 
 interface inputProps {
-  data: Array,
+  data: DatasetRowProps[],
   title: string,
   feature_id: number,
 }
@@ -30,10 +32,12 @@ interface inputProps {
 
 export default function ZoomableLineChart(props: inputProps) {
   const svgRef = useRef();
-  const wrapperRef = useRef();
+  const wrapperRef = useRef(null);
   const dimensions = useResizeObserver(wrapperRef);
   const [currentZoomState, setCurrentZoomState] = useState();
   
+  const [loading, setLoading] = useState(true)
+
   let zoomBehavior
   const id = useId()
 
@@ -152,6 +156,17 @@ export default function ZoomableLineChart(props: inputProps) {
 
   }, [currentZoomState, data, dimensions]);
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false)
+    })
+  
+    return () => {
+      clearTimeout(timer)
+    }
+  }, [data])
+  
+
   function reset() {
     const svg = select(svgRef.current);
     svg.transition().duration(750).call(
@@ -176,19 +191,25 @@ export default function ZoomableLineChart(props: inputProps) {
           {zoomIsChanged() ? <Button variant="text" size="small" onClick={reset} style={{padding: "0px"}}>Reset</Button> : null }
         </div>
         
-        <div className="zoomable-chart-container" ref={wrapperRef} style={{ marginBottom: "2rem" }}>
-          <svg ref={svgRef}>
-            <defs>
-              <clipPath id={id}>
-                <rect x="0" y="0" width="100%" height="100%" onClick={reset} />
-              </clipPath>
-            </defs>
-            <g className="content" clipPath={`url(#${id})`}></g>
-            <g className="x-axis" />
-            <g className="y0-axis" />
-            <g className="y1-axis" />
-          </svg>
+        <div className="zoomable-chart-container MuiSkeleton-root MuiSkeleton-wave" ref={wrapperRef} style={{ marginBottom: "2rem" }}>
+            {
+              loading ?
+              <Skeleton variant={"rectangular"} height={`300px`}/>
+              :
+              <svg ref={svgRef}>
+                <defs>
+                  <clipPath id={id}>
+                    <rect x="0" y="0" width="100%" height="100%" onClick={reset} />
+                  </clipPath>
+                </defs>
+                <g className="content" clipPath={`url(#${id})`}></g>
+                <g className="x-axis" />
+                <g className="y0-axis" />
+                <g className="y1-axis" />
+              </svg>
+            }
         </div>
+        
 
       </div>
     </React.Fragment>

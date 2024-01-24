@@ -12,6 +12,7 @@ import Paper from '@mui/material/Paper';
 import { TableVirtuoso, TableComponents } from 'react-virtuoso';
 import ws_api from '../../lib/axios';
 import { useRecordContext } from 'ra-core';
+import { Loading } from 'react-admin';
 
 // interface Data {
 //   DATETIME: number;
@@ -144,7 +145,9 @@ export default function DatasetTable() {
     );
 
   } else return (
-    <p>Datset not ready yet.</p>
+    <div className="loading-charts">
+      <Loading loadingPrimary='Loading Dataset...' loadingSecondary='Please wait...'/>
+    </div>
   );
 
   

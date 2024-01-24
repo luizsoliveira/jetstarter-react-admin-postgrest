@@ -8,6 +8,7 @@ import { useRecordContext } from 'ra-core';
 
 import { features } from '../../consts/features'
 import ZoomableLineChart from '../ZoomableLineChart';
+import { Loading } from 'react-admin';
 
   // const sliceData = (dataset, column: string) => {
 
@@ -27,7 +28,6 @@ import ZoomableLineChart from '../ZoomableLineChart';
 export default function DatasetFeaturesGraphs() {
 
   const [datasetRows, setDatasetRows] = useState([]);
-  
 
   const task = useRecordContext();
   if (!task) return null;
@@ -37,6 +37,7 @@ export default function DatasetFeaturesGraphs() {
     })
     .then(response => {
       setDatasetRows(response.data)
+      console.log(datasetRows)
       return response
     })
     .catch(console.error)
@@ -44,24 +45,28 @@ export default function DatasetFeaturesGraphs() {
 
   useEffect(() => {
 
+    
     getRowsRemotely()
 
     return () => {
-
     };
 
   }, []);
 
-  if (datasetRows.length>0) {
+  if (datasetRows.length>0 && datasetRows != undefined && datasetRows != null) {
 
     // const graphData = sliceData(datasetRows, ['DATETIME', 'F1', 'LABEL'])
     // const graphData = sliceData(datasetRows, 'F1')
     // console.log(features)
 
-    const graphItems = features.map((feature) => {
+    const graphItems = features.map((feature, index) => {
       //  return <LineChart key={feature.name} data={sliceData(datasetRows, `F${feature.id}`)} title={feature.name} feature_id={feature.id}/>
       // return <ZoomableLineChart key={feature.name} data={sliceData(datasetRows, `F${feature.id}`)} title={feature.name} feature_id={feature.id} sample_length={100}/>
-      return <ZoomableLineChart key={feature.name} data={datasetRows} title={feature.name} feature_id={feature.id}/>
+      return (
+        <>
+          <ZoomableLineChart key={feature.name} data={datasetRows} title={feature.name} feature_id={feature.id}/> 
+        </>
+      )
     });
 
     
@@ -73,7 +78,9 @@ export default function DatasetFeaturesGraphs() {
     );
 
   } else return (
-    <p>Dataset is not ready yet.</p>
+    <div className="loading-charts">
+      <Loading loadingPrimary='Requesting data...' loadingSecondary='Please wait...'/>
+    </div>
   );
 
   
