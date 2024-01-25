@@ -3,11 +3,12 @@
 
 import React, {useEffect, useState} from 'react';
 import ws_api from '../../lib/axios';
-import { useRecordContext } from 'ra-core';
+import { choices, useRecordContext } from 'ra-core';
 // import { LineChart } from '../LineChart';
 
 import { features } from '../../consts/features'
 import ZoomableLineChart from '../ZoomableLineChart';
+import { Loading , SelectArrayInput, Button} from 'react-admin';
 
   // const sliceData = (dataset, column: string) => {
 
@@ -23,12 +24,16 @@ import ZoomableLineChart from '../ZoomableLineChart';
   //   return slicedArray
   // }
 
+interface ChoicesProps {
+  id: number 
+  name: string
+}
 
 export default function DatasetFeaturesGraphs() {
-
+  let defaultActiveGraphs = [1,2,3,4,5,6,7,8,9,10,11,12,13,34,35,36,37]
   const [datasetRows, setDatasetRows] = useState([]);
-  
-
+  const[activeGraphs, setActiveGraphs] = useState([]);
+  const[graphItems, setGraphItems] = useState([])
   const task = useRecordContext();
   if (!task) return null;
   
@@ -44,36 +49,64 @@ export default function DatasetFeaturesGraphs() {
 
   useEffect(() => {
 
+    setActiveGraphs(defaultActiveGraphs)
     getRowsRemotely()
 
     return () => {
-
     };
 
   }, []);
 
-  if (datasetRows.length>0) {
+  useEffect(() => {
+    console.log('call')
+    const graphItem = features.map((feature, index) => {
+      //  return <LineChart key={feature.name} data={sliceData(datasetRows, `F${feature.id}`)} title={feature.name} feature_id={feature.id}/>
+      // return <ZoomableLineChart key={feature.name} data={sliceData(datasetRows, `F${feature.id}`)} title={feature.name} feature_id={feature.id} sample_length={100}/>
+      if(activeGraphs.includes(feature.id)){
+        return (
+          <>
+            <ZoomableLineChart key={feature.name} data={datasetRows} title={feature.name} feature_id={feature.id}/> 
+          </>
+        )
+      }
+    });
+    setGraphItems(graphItem)
+  }, [activeGraphs])
+  
+
+  if (datasetRows.length>0 && datasetRows != undefined && datasetRows != null) {
 
     // const graphData = sliceData(datasetRows, ['DATETIME', 'F1', 'LABEL'])
     // const graphData = sliceData(datasetRows, 'F1')
     // console.log(features)
 
-    const graphItems = features.map((feature) => {
-      //  return <LineChart key={feature.name} data={sliceData(datasetRows, `F${feature.id}`)} title={feature.name} feature_id={feature.id}/>
-      // return <ZoomableLineChart key={feature.name} data={sliceData(datasetRows, `F${feature.id}`)} title={feature.name} feature_id={feature.id} sample_length={100}/>
-      return <ZoomableLineChart key={feature.name} data={datasetRows} title={feature.name} feature_id={feature.id}/>
-    });
-
-    
+    const choices : ChoicesProps[] = features.map((feature) => {
+      return {id:feature.id, name:feature.name}
+    })
     
     return (
-        <div>
-          {graphItems}
-        </div>
+      <>
+      <div>
+        <SelectArrayInput
+          source='Active Graphs'
+          choices={
+            choices
+          }
+          onChange={(e) => setActiveGraphs([...e.target.value])}
+          defaultValue={defaultActiveGraphs}
+        />
+      </div>
+      <div style={{marginLeft:'25px'}}>
+        {graphItems}
+      </div>
+      </>
     );
 
   } else return (
-    <p>Dataset is not ready yet.</p>
+    
+    <div className="loading-charts">
+      <Loading loadingPrimary='Requesting data...' loadingSecondary='Please wait...'/>
+    </div>
   );
 
   
