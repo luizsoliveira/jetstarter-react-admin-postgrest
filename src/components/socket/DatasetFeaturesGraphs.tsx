@@ -1,28 +1,16 @@
 // import stylesAdmin from  '../../styles/admin.module.css'
 // import { Checkbox, FormControlLabel } from '@mui/material';
 
-import React, {useEffect, useState} from 'react';
+import {useEffect, useState} from 'react';
 import ws_api from '../../lib/axios';
-import { choices, useRecordContext } from 'ra-core';
+import { useRecordContext } from 'ra-core';
 // import { LineChart } from '../LineChart';
 
 import { features } from '../../consts/features'
-import ZoomableLineChart from '../ZoomableLineChart';
-import { Loading , SelectArrayInput, Button} from 'react-admin';
-
-  // const sliceData = (dataset, column: string) => {
-
-  //   let slicedArray = []
-
-  //   for (const row of dataset) {
-  //     slicedArray.push({
-  //       datetime: row['DATETIME'],
-  //       value: row[column],
-  //       label: row['LABEL'],
-  //     })
-  //   }
-  //   return slicedArray
-  // }
+// import ZoomableLineChart from '../ZoomableLineChart';
+import { Loading , SelectArrayInput} from 'react-admin';
+import CSVZoomableLineChart from '../CSVZoomableLineChart';
+import {csv} from "d3";
 
 interface ChoicesProps {
   id: number 
@@ -31,6 +19,7 @@ interface ChoicesProps {
 
 export default function DatasetFeaturesGraphs() {
   let defaultActiveGraphs = [1,2,3,4,5,6,7,8,9,10,11,12,13,34,35,36,37]
+  // let defaultActiveGraphs = [1]
   const [datasetRows, setDatasetRows] = useState([]);
   const[activeGraphs, setActiveGraphs] = useState([]);
   const[graphItems, setGraphItems] = useState([])
@@ -38,13 +27,17 @@ export default function DatasetFeaturesGraphs() {
   if (!task) return null;
   
   async function getRowsRemotely() {
-    ws_api.get(`/dataset/${task.id}`,{
+    // ws_api.get(`/dataset/${task.id}`,{
+    // })
+    // .then(response => {
+    //   setDatasetRows(response.data)
+    //   return response
+    // })
+    // .catch(console.error)
+    csv(`/tasks/${task.id}/DATASET.csv`)
+    .then(function(d) {
+      setDatasetRows(d)
     })
-    .then(response => {
-      setDatasetRows(response.data)
-      return response
-    })
-    .catch(console.error)
   }
 
   useEffect(() => {
@@ -58,14 +51,12 @@ export default function DatasetFeaturesGraphs() {
   }, []);
 
   useEffect(() => {
-    console.log('call')
     const graphItem = features.map((feature, index) => {
-      //  return <LineChart key={feature.name} data={sliceData(datasetRows, `F${feature.id}`)} title={feature.name} feature_id={feature.id}/>
-      // return <ZoomableLineChart key={feature.name} data={sliceData(datasetRows, `F${feature.id}`)} title={feature.name} feature_id={feature.id} sample_length={100}/>
       if(activeGraphs.includes(feature.id)){
         return (
           <>
-            <ZoomableLineChart key={feature.name} data={datasetRows} title={feature.name} feature_id={feature.id}/> 
+            {/* <ZoomableLineChart key={feature.name} data={datasetRows} title={feature.name} feature_id={feature.id}/>  */}
+            <CSVZoomableLineChart data={datasetRows} key={feature.name} title={feature.name} feature_id={feature.id}/> 
           </>
         )
       }
