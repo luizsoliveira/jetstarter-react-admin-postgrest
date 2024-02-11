@@ -5,7 +5,6 @@ import { DatasetTypeBGPShow } from './DatasetTypeBGPShow';
 import TaskSocket from './socket/TaskSocket';
 import DatasetTable from './socket/DatasetTable';
 import DatasetFeaturesGraphs from './socket/DatasetFeaturesGraphs';
-import FeatureSelectionImportances from './FeatureSelectionImportances';
 
 export const DatasetShow = () => {
 return (
