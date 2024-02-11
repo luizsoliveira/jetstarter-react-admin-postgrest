@@ -17,8 +17,14 @@ export const DatasetTypeBGPShow = () => (
                 <Labeled label="Date analysis start">
                     <TextField source="parameters.date_start"/>
                 </Labeled>
+                <Labeled label="Time analysis start">
+                    <TextField source="parameters.time_start"/>
+                </Labeled>
                 <Labeled label="Date analysis end">
                     <TextField source="parameters.date_end"/>
+                </Labeled>
+                <Labeled label="Time analysis end">
+                    <TextField source="parameters.time_end"/>
                 </Labeled>
             </div>
             <div className={stylesAdmin.inlineShowGroupFields}>

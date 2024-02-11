@@ -12,9 +12,9 @@ export const DatasetTypeBGP = () => (
         <SelectInput label="RIPE RIS RRC" source="parameters.ripe_ris_rrc" choices={ripe_ris_rrcs   } />
         <div className={stylesAdmin.inlineGroupFields}>
         <TextInput source="parameters.date_start" helperText="format: YYYYMMDD" label="Date start"/>
-        {/* <TextInput source="parameters.time_start" helperText="format: HHMM" label="Time start"/> */}
+        <TextInput source="parameters.time_start" defaultValue={"0000"} helperText="format: HHMM" label="Time start"/>
         <TextInput source="parameters.date_end" helperText="format: YYYYMMDD" label="Date end"/>
-        {/* <TextInput source="parameters.time_end" helperText="format: HHMM" label="Time end"/>  */}
+        <TextInput source="parameters.time_end" defaultValue={"2359"} helperText="format: HHMM" label="Time end"/> 
         {/* <DateTimeInput source="parameters.datetime_start" /> */}
         {/* <DateTimeInput source="parameters.datetime_end"  /> */}
         </div>
