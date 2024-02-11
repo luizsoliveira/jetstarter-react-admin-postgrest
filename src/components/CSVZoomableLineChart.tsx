@@ -6,6 +6,7 @@ import {
   extent,
   line,
   max,
+  min,
   axisBottom,
   axisLeft,
   axisRight,
@@ -73,7 +74,8 @@ export default function CSVZoomableLineChart(props: inputProps) {
     }
 
     const y0Scale = scaleLinear()
-      .domain([0, max(data, (d) => { return d.value; })])
+      // .domain([0, max(data, (d) => { return d.value; })])
+      .domain([min(data, (d) => { return d.value; }), max(data, (d) => { return d.value; })])
       .range([height - 10, 10]);
 
     const y1Scale = scaleLinear()
