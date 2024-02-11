@@ -5,6 +5,7 @@ import { ExperimentTypeBGPShow } from './ExperimentTypeBGPShow';
 import TaskSocket from './socket/TaskSocket';
 import DatasetTable from './socket/DatasetTable';
 import ExperimentEDA from './ExperimentEDA';
+import DatasetFeaturesGraphs from './socket/DatasetFeaturesGraphs';
 
 export const ExperimentShow = () => {
 return (
@@ -32,6 +33,10 @@ return (
             </TabbedForm.Tab>
             <TabbedForm.Tab label="Dataset">
                 <DatasetTable/>
+            </TabbedForm.Tab>
+            <TabbedForm.Tab label="Features Charts">
+                <p>ATTENTION: the values of all features above were normalized using Zscore.</p>
+                <DatasetFeaturesGraphs key={Math.random()}/>
             </TabbedForm.Tab>
             <TabbedForm.Tab label="EDA">
                 <ExperimentEDA/>
