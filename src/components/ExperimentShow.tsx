@@ -35,7 +35,7 @@ return (
                 <DatasetTable/>
             </TabbedForm.Tab>
             <TabbedForm.Tab label="Features Charts">
-                <p>ATTENTION: the values of all features above were normalized using Zscore.</p>
+                <p>ATTENTION: the values of all features above were normalized using Zscore(ddof=1).</p>
                 <DatasetFeaturesGraphs key={Math.random()}/>
             </TabbedForm.Tab>
             <TabbedForm.Tab label="EDA">
